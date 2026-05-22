@@ -1,0 +1,9 @@
+{
+  "Home": {
+    "title": "Projet prêt !",
+    "description1": "Vous pouvez maintenant ajouter des composants et commencer à construire.",
+    "description2": "Nous avons déjà ajouté le composant bouton pour vous.",
+    "toggleHint": "(Appuyez sur d pour changer le thème)",
+    "button": "Bouton"
+  }
+}
