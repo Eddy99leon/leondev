@@ -1,16 +1,20 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import { Geist, Geist_Mono } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
+import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
-import "./globals.css"
+import "./globals.css";
+import { Navbar } from '@/components/navbar';
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'})
+const fontSans = Geist({
+  subsets: ['latin'],
+  variable: '--font-sans'
+});
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
-})
+});
 
 export default async function LocaleLayout(props: {
   children: React.ReactNode;
@@ -21,15 +25,23 @@ export default async function LocaleLayout(props: {
 
   return (
     <html 
-        lang={locale}
-        suppressHydrationWarning
-        className={cn("antialiased", fontMono.variable, "font-sans", geist.variable)}
+      lang={locale} 
+      suppressHydrationWarning
     >
-      <body>
+      <body className={cn(
+        "min-h-screen bg-background font-sans antialiased",
+        fontSans.variable,
+        fontMono.variable
+      )}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-            <ThemeProvider>
-              {props.children}
-            </ThemeProvider>
+          <ThemeProvider>
+            <div className="relative flex min-h-screen flex-col">
+              <Navbar />
+              <main className="flex-1">
+                {props.children}
+              </main>
+            </div>
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -1,4 +1,10 @@
 {
+  "Common": {
+    "languages": {
+      "french": "Français",
+      "english": "Anglais"
+    }
+  },
   "Home": {
     "title": "Projet prêt !",
     "description1": "Vous pouvez maintenant ajouter des composants et commencer à construire.",
