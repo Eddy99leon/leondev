@@ -29,10 +29,10 @@ export function ThemeSwitcher() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="outline-none group cursor-pointer">
-        <div className="flex items-center p-1.5 rounded-full bg-white border border-slate-100 shadow-sm transition-all hover:bg-slate-50 dark:bg-slate-900 dark:border-slate-800">
+        <div className="flex items-center p-1 rounded-full border">
           <Icon 
             icon={resolvedTheme === "dark" ? "solar:moon-bold-duotone" : "solar:sun-2-bold-duotone"} 
-            className="h-6 w-6"
+            className="h-6 w-6 text-chart-5"
           />
         </div>
       </DropdownMenuTrigger>

@@ -1,19 +1,14 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 import { Navbar } from '@/components/navbar';
 
-const fontSans = Geist({
-  subsets: ['latin'],
-  variable: '--font-sans'
-});
-
-const fontMono = Geist_Mono({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-space-grotesk",
 });
 
 export default async function LocaleLayout(props: {
@@ -29,9 +24,9 @@ export default async function LocaleLayout(props: {
       suppressHydrationWarning
     >
       <body className={cn(
-        "min-h-screen bg-background font-sans antialiased",
-        fontSans.variable,
-        fontMono.variable
+        "min-h-screen bg-background antialiased",
+        spaceGrotesk.variable,
+        "font-sans"
       )}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider>

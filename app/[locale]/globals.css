@@ -4,13 +4,9 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* =========================================================
-   THEME TOKENS (shadcn compatibility)
-========================================================= */
-
 @theme inline {
-  --font-heading: var(--font-sans);
-  --font-sans: var(--font-sans);
+  --font-heading: var(--font-space-grotesk);
+  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
 
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -60,7 +56,7 @@
 ========================================================= */
 
 :root {
-  --radius: 0.28rem;
+  --radius: 0.24rem;
 
   /* Base colors */
   --background: oklch(1 0 0);
@@ -90,14 +86,12 @@
   --input: oklch(0.92 0 0);
   --ring: oklch(0.7 0 0);
 
-  /* Charts */
   --chart-1: oklch(0.7 0.22 280);
   --chart-2: oklch(0.7 0.2 240);
   --chart-3: oklch(0.75 0.2 60);
   --chart-4: oklch(0.7 0.22 25);
   --chart-5: oklch(0.75 0.2 150);
 
-  /* Sidebar */
   --sidebar: oklch(0.98 0 0);
   --sidebar-foreground: oklch(0.15 0 0);
   --sidebar-primary: oklch(0.65 0.22 280);
@@ -106,30 +100,6 @@
   --sidebar-accent-foreground: oklch(0.2 0 0);
   --sidebar-border: oklch(0.92 0 0);
   --sidebar-ring: oklch(0.7 0 0);
-
-  /* Background gradients */
-  --bg-gradient-soft: linear-gradient(
-    135deg,
-    #ffe4f1 0%,
-    #e9d5ff 40%,
-    #fef3c7 100%
-  );
-
-  /* Shadows (Neumorphism) */
-  --shadow-soft:
-    10px 10px 30px rgba(0, 0, 0, 0.08),
-    -10px -10px 30px rgba(255, 255, 255, 0.8);
-
-  --shadow-soft-hover:
-    15px 15px 40px rgba(0, 0, 0, 0.12),
-    -15px -15px 40px rgba(255, 255, 255, 0.9);
-
-  --shadow-inner-soft:
-    inset 4px 4px 8px rgba(0, 0, 0, 0.05),
-    inset -4px -4px 8px rgba(255, 255, 255, 0.8);
-
-  /* Glow */
-  --glow-primary: 0 0 40px rgba(124, 58, 237, 0.35);
 }
 
 /* =========================================================
@@ -160,23 +130,6 @@
 
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-
-  --bg-gradient-soft: linear-gradient(
-    135deg,
-    #1e1b4b 0%,
-    #0f172a 50%,
-    #1e293b 100%
-  );
-
-  --shadow-soft:
-    10px 10px 30px rgba(0, 0, 0, 0.6),
-    -10px -10px 30px rgba(255, 255, 255, 0.05);
-
-  --shadow-inner-soft:
-    inset 4px 4px 8px rgba(0, 0, 0, 0.6),
-    inset -4px -4px 8px rgba(255, 255, 255, 0.05);
-
-  --glow-primary: 0 0 40px rgba(168, 85, 247, 0.5);
 }
 
 /* =========================================================
@@ -193,69 +146,7 @@
   }
 
   body {
-    @apply text-foreground;
-    background: var(--bg-gradient-soft);
-    background-attachment: fixed;
+    @apply bg-background text-foreground;
+    font-family: var(--font-space-grotesk); 
   }
-}
-
-/* =========================================================
-   UTILITIES (Reusable Design System)
-========================================================= */
-
-@layer utilities {
-  .soft-card {
-    @apply rounded-3xl backdrop-blur-xl border border-white/30;
-    background: var(--card);
-    box-shadow: var(--shadow-soft);
-    transition: all 0.3s ease;
-  }
-
-  .soft-card:hover {
-    box-shadow: var(--shadow-soft-hover);
-    transform: translateY(-6px);
-  }
-
-  .soft-inset {
-    box-shadow: var(--shadow-inner-soft);
-  }
-
-  .gradient-text {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(
-      90deg,
-      #7c3aed,
-      #ec4899,
-      #f97316
-    );
-  }
-
-  .gradient-button {
-    @apply px-6 py-3 rounded-2xl text-white font-medium transition-all duration-300;
-    background: linear-gradient(
-      90deg,
-      #7c3aed,
-      #ec4899,
-      #f97316
-    );
-    box-shadow: var(--glow-primary);
-  }
-
-  .gradient-button:hover {
-    transform: scale(1.05);
-  }
-
-  .floating {
-    animation: float 6s ease-in-out infinite;
-  }
-}
-
-/* =========================================================
-   ANIMATIONS
-========================================================= */
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0px); }
 }

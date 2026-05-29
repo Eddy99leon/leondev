@@ -31,11 +31,11 @@ export function LanguageSwitcher() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="outline-none group cursor-pointer">
-        <div className="flex items-center p-1.5 rounded-full bg-white border border-slate-100 shadow-sm transition-all hover:bg-slate-50">
+        <div className="flex items-center p-1 rounded-full shadow-sm transition-all border">
           <img 
             src={currentLang.icon} 
             alt={currentLang.value} 
-            className="h-6 w-6 rounded-full object-cover border border-slate-100"
+            className="h-6 w-6 rounded-full object-cover"
           />
         </div>
       </DropdownMenuTrigger>

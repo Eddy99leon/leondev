@@ -12,8 +12,8 @@ export default async function Page(props: {
   });
 
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
+    <div className="max-w-7xl mx-auto px-6 py-4">
+      <div className="flex flex-col gap-4 text-sm leading-loose">
         <div>
           <h1 className="font-medium">{t("title")}</h1>
           <p>{t("description1")}</p>
