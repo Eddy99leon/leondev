@@ -47,13 +47,13 @@ export function Hero() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-foreground leading-[1.05]">
+              <h1 className="text-3xl md:text-4xl lg:text-4xl font-bold tracking-tighter text-foreground leading-[1.05]">
                 {t("title1")}
               </h1>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter leading-[1.05] text-primary">
+              <h1 className="text-3xl md:text-4xl lg:text-4xl font-bold tracking-tighter leading-[1.05] text-primary">
                 {t("title2")}
               </h1>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-foreground leading-[1.05]">
+              <h1 className="text-3xl md:text-4xl lg:text-4xl font-bold tracking-tighter text-foreground leading-[1.05]">
                 {t("title3")}
               </h1>
             </div>
@@ -109,12 +109,16 @@ export function Hero() {
 
 
             <div className="relative z-10 w-full max-w-sm">
-              <div className="bg-card backdrop-blur-xl rounded-xl border-2 border-border p-6 shadow-xl">
+              <div className="bg-card rounded border-2 border-border p-6">
 
                 <div className="flex flex-col items-center gap-4 pb-6 border-b border-border">
                   <div className="relative">
-                    <div className="w-24 h-24 rounded-2xl bg-primary flex items-center justify-center text-5xl shadow-lg">
-                      👨‍💻
+                    <div className="w-24 h-26 rounded-2xl overflow-hidden shadow-lg border-2 border-border">
+                      <img
+                        src="/images/hero.png"
+                        alt="Leon Dev"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div className="absolute -bottom-2 -right-2 w-7 h-7 rounded-full bg-emerald-500 border-2 border-background flex items-center justify-center">
                       <Icon icon="solar:check-circle-bold" className="text-white w-4 h-4" />
@@ -128,7 +132,7 @@ export function Hero() {
                     {FLOATING_BADGES.map((badge) => (
                         <div
                         key={badge.label}
-                        className={`flex items-center gap-1 px-3 py-2 rounded-2xl ${badge.color} text-white shadow-lg`}
+                        className={`flex items-center gap-1 pl-3 pr-4 py-2 rounded-2xl ${badge.color} text-white shadow-lg`}
                         >
                         <Icon icon={badge.icon} className="w-4 h-4" />
                         <span className="text-xs font-bold">{badge.label}</span>
