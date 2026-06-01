@@ -5,11 +5,61 @@
       "english": "Anglais"
     }
   },
-  "Home": {
-    "title": "Projet prêt !",
-    "description1": "Vous pouvez maintenant ajouter des composants et commencer à construire.",
-    "description2": "Nous avons déjà ajouté le composant bouton pour vous.",
-    "toggleHint": "(Appuyez sur d pour changer le thème)",
-    "button": "Bouton"
+  "Hero": {
+    "badge": "Disponible pour de nouveaux projets",
+    "title1": "Je crée des",
+    "title2": "produits digitaux",
+    "title3": "que les gens adorent.",
+    "description": "Développeur Full-Stack freelance spécialisé dans la création d'applications web modernes avec un focus sur le design et l'expérience utilisateur.",
+    "cta_primary": "Démarrer un projet",
+    "cta_secondary": "Voir mes projets",
+    "experience": "ans d'expérience",
+    "projects": "projets livrés",
+    "satisfaction": "clients satisfaits"
+  },
+  "Projects": {
+    "badge": "Mes Projets",
+    "title": "Ce que j'ai construit",
+    "description": "Une sélection de projets réalisés pour des clients et en personnel.",
+    "view_project": "Voir le projet",
+    "view_code": "Code source",
+    "view_all": "Voir tous les projets"
+  },
+  "About": {
+    "badge": "À propos de moi",
+    "title": "Passionné par le code et le design",
+    "description": "Je suis un développeur Full-Stack freelance avec plus de 5 ans d'expérience dans la création d'applications web modernes. Je combine des compétences techniques solides avec un sens aigu du design pour livrer des produits qui font la différence.",
+    "skills_title": "Compétences",
+    "experience_title": "Expérience",
+    "download_cv": "Télécharger mon CV",
+    "contact_me": "Me contacter",
+    "years_exp": "Ans d'expérience",
+    "projects_done": "Projets réalisés",
+    "clients": "Clients satisfaits",
+    "present": "Présent"
+  },
+  "Contact": {
+    "badge": "Contact",
+    "title": "Travaillons ensemble",
+    "description": "Vous avez un projet en tête ? Je serais ravi d'en discuter. Envoyez-moi un message et je vous répondrai dans les 24 heures.",
+    "form_name": "Nom complet",
+    "form_name_placeholder": "John Doe",
+    "form_email": "Adresse email",
+    "form_email_placeholder": "john@example.com",
+    "form_subject": "Sujet",
+    "form_subject_placeholder": "Mon projet web...",
+    "form_message": "Message",
+    "form_message_placeholder": "Décrivez votre projet...",
+    "form_submit": "Envoyer le message",
+    "form_sending": "Envoi en cours...",
+    "form_success": "Message envoyé avec succès !",
+    "form_error": "Une erreur est survenue. Réessayez.",
+    "info_email": "Email",
+    "info_location": "Localisation",
+    "info_availability": "Disponibilité",
+    "info_availability_value": "Lun - Ven, 9h - 18h",
+    "info_response": "Temps de réponse",
+    "info_response_value": "Sous 24 heures",
+    "social_title": "Retrouvez-moi sur"
   }
 }

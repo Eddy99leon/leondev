@@ -4,7 +4,8 @@ import { Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import "./globals.css";
-import { Navbar } from '@/components/navbar';
+import Navbar from '@/components/navbar';
+import Footer from '@/components/footer';
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default async function LocaleLayout(props: {
               <main className="flex-1">
                 {props.children}
               </main>
+              <Footer />
             </div>
           </ThemeProvider>
         </NextIntlClientProvider>
