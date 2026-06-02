@@ -10,10 +10,14 @@ export function Projects() {
   const featuredProjects = PROJECTS.filter((p) => p.featured);
 
   return (
-    <section>
+    <section id="projects" className="w-full bg-background">
       <div className="max-w-6xl mx-auto px-6 py-10 lg:py-14">
         <div className="flex flex-col items-center text-center gap-2 mb-12">
-          <div className="px-3 py-0 rounded-full bg-blue-50 dark:bg-blue-950/40 border border-blue-100 dark:border-blue-900">
+          <div className="flex items-center gap-2 w-fit px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/40 border border-blue-100 dark:border-blue-900">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500" />
+            </span>
             <span className="text-xs font-bold text-blue-600 dark:text-blue-400 tracking-widest">
               {t("badge")}
             </span>

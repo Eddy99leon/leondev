@@ -13,31 +13,15 @@ const CONTACT_INFO = [
   {
     icon: "solar:letter-bold-duotone",
     labelKey: "info_email",
-    value: "hello@leon.dev",
-    href: "mailto:hello@leon.dev",
-    color: "bg-violet-50 dark:bg-violet-950/40 text-violet-600 dark:text-violet-400 border-violet-100 dark:border-violet-900",
-    iconBg: "bg-violet-500",
-  },
-  {
-    icon: "solar:map-point-bold-duotone",
-    labelKey: "info_location",
-    value: "Paris, France",
-    href: null,
-    color: "bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 border-blue-100 dark:border-blue-900",
-    iconBg: "bg-blue-500",
-  },
-  {
-    icon: "solar:clock-circle-bold-duotone",
-    labelKey: "info_availability",
-    valueKey: "info_availability_value",
-    href: null,
+    value: "eddyleon.dev@gmail.com",
+    href: "mailto:eddyleon.dev@gmail.com",
     color: "bg-orange-50 dark:bg-orange-950/40 text-orange-600 dark:text-orange-400 border-orange-100 dark:border-orange-900",
     iconBg: "bg-orange-500",
   },
   {
-    icon: "solar:stopwatch-bold-duotone",
-    labelKey: "info_response",
-    valueKey: "info_response_value",
+    icon: "solar:map-point-bold-duotone",
+    labelKey: "info_location",
+    value: "Antananarivo, Madagascar",
     href: null,
     color: "bg-pink-50 dark:bg-pink-950/40 text-pink-600 dark:text-pink-400 border-pink-100 dark:border-pink-900",
     iconBg: "bg-pink-500",
@@ -94,46 +78,42 @@ export function Contact() {
     e.preventDefault();
     setFormState("sending");
 
-    // Simule un envoi (remplace par ton API)
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
-    // Simule succès
     setFormState("success");
     setForm({ name: "", email: "", subject: "", message: "" });
 
-    // Reset après 4 secondes
     setTimeout(() => setFormState("idle"), 4000);
   };
 
   return (
-    <section className="w-full">
+    <section id="contact" className="w-full">
       <div className="max-w-6xl mx-auto px-6 py-14 lg:py-18">
 
         <div className="flex flex-col items-center text-center gap-1 mb-6">
-            <div className="px-3 py-0 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-900">
-                <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 tracking-widest">
-                    {t("badge")}
-                </span>
-            </div>
-            <h2 className="text-xl md:text-2xl font-bold tracking-tighter text-foreground">
-                {t("title")}
-            </h2>
-            <p className="text-muted-foreground max-w-xl leading-relaxed">
-                {t("description")}
-            </p>
+          <div className="flex items-center gap-2 w-fit px-3 py-1 rounded-full bg-orange-50 dark:bg-orange-950/40 border border-orange-100 dark:border-orange-900">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500" />
+            </span>
+            <span className="text-xs font-bold text-orange-600 dark:text-orange-400 tracking-widest">
+              {t("badge")}
+            </span>
+          </div>
+          <h2 className="text-xl md:text-2xl font-bold tracking-tighter text-foreground">
+            {t("title")}
+          </h2>
+          <p className="text-muted-foreground max-w-xl leading-relaxed">
+            {t("description")}
+          </p>
         </div>
 
-        {/* ===== MAIN GRID ===== */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-
-          {/* ===== COLONNE GAUCHE : Infos + Socials ===== */}
           <div className="lg:col-span-2 flex flex-col gap-4">
-
-            {/* Infos de contact */}
             {CONTACT_INFO.map((info) => (
               <div
                 key={info.labelKey}
-                className={`flex items-center gap-4 p-4 rounded-2xl border-2 ${info.color} hover:-translate-y-1 transition-all duration-300`}
+                className={`flex items-center gap-4 p-4 rounded border-2 ${info.color} hover:-translate-y-0.5 transition-all duration-300`}
               >
                 <div className={`w-10 h-10 rounded-xl ${info.iconBg} flex items-center justify-center shrink-0 shadow-md`}>
                   <Icon icon={info.icon} className="text-white w-5 h-5" />
@@ -151,15 +131,13 @@ export function Contact() {
                     </Link>
                   ) : (
                     <span className="text-sm font-bold">
-                      {info.value ?? t(info.valueKey as any)}
+                      {info.value ?? t(info.value as any)}
                     </span>
                   )}
                 </div>
               </div>
             ))}
-
-            {/* Réseaux Sociaux */}
-            <div className="p-5 rounded-2xl border-2 border-border bg-background mt-2">
+            <div className="p-5 rounded border-2 border-border bg-background">
               <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-4">
                 {t("social_title")}
               </p>
@@ -170,7 +148,7 @@ export function Contact() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex items-center gap-2 px-4 py-3 rounded-xl border transition-all hover:scale-105 ${social.color}`}
+                    className={`flex items-center gap-2 px-4 py-3 rounded border transition-all ${social.color}`}
                   >
                     <Icon icon={social.icon} className="w-5 h-5" />
                     <span className="text-sm font-bold">{social.label}</span>
@@ -180,11 +158,8 @@ export function Contact() {
             </div>
           </div>
 
-          {/* ===== COLONNE DROITE : Formulaire ===== */}
           <div className="lg:col-span-3">
-            <div className="p-8 rounded-3xl border-2 border-border bg-background shadow-[4px_4px_0px_rgba(0,0,0,0.04)]">
-
-              {/* Succès */}
+            <div className="p-8 rounded border-2 border-border bg-background">
               {formState === "success" && (
                 <div className="flex items-center gap-3 p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border-2 border-emerald-100 dark:border-emerald-900 mb-6">
                   <div className="w-8 h-8 rounded-xl bg-emerald-500 flex items-center justify-center shrink-0">
@@ -195,8 +170,6 @@ export function Contact() {
                   </p>
                 </div>
               )}
-
-              {/* Erreur */}
               {formState === "error" && (
                 <div className="flex items-center gap-3 p-4 rounded-2xl bg-red-50 dark:bg-red-950/40 border-2 border-red-100 dark:border-red-900 mb-6">
                   <div className="w-8 h-8 rounded-xl bg-red-500 flex items-center justify-center shrink-0">
@@ -207,10 +180,7 @@ export function Contact() {
                   </p>
                 </div>
               )}
-
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-
-                {/* Nom + Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-2">
                     <Label htmlFor="name" className="text-sm font-bold text-foreground">
@@ -242,8 +212,6 @@ export function Contact() {
                     />
                   </div>
                 </div>
-
-                {/* Sujet */}
                 <div className="flex flex-col gap-2">
                   <Label htmlFor="subject" className="text-sm font-bold text-foreground">
                     {t("form_subject")}
@@ -258,8 +226,6 @@ export function Contact() {
                     className="h-12 rounded-2xl border-2 border-border bg-muted/30 focus:border-primary transition-colors font-medium"
                   />
                 </div>
-
-                {/* Message */}
                 <div className="flex flex-col gap-2">
                   <Label htmlFor="message" className="text-sm font-bold text-foreground">
                     {t("form_message")}
@@ -275,8 +241,6 @@ export function Contact() {
                     className="rounded-2xl border-2 border-border bg-muted/30 focus:border-primary transition-colors font-medium resize-none"
                   />
                 </div>
-
-                {/* Submit */}
                 <Button
                   type="submit"
                   size="lg"

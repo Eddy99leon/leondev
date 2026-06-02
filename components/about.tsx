@@ -12,11 +12,15 @@ export function About() {
     const locale = useLocale();
 
     return (
-        <section className="w-full bg-background">
+        <section id="about" className="w-full bg-background">
             <div className="max-w-6xl mx-auto px-6 py-16 lg:py-20">
 
                 <div className="flex flex-col items-center text-center gap-2 mb-6">
-                    <div className="px-3 py-0 rounded-full bg-pink-50 dark:bg-pink-950/40 border border-pink-100 dark:border-pink-900">
+                    <div className="flex items-center gap-2 w-fit px-3 py-1 rounded-full bg-pink-50 dark:bg-pink-950/40 border border-pink-100 dark:border-pink-900">
+                        <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75" />
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-500" />
+                        </span>
                         <span className="text-xs font-bold text-pink-600 dark:text-pink-400 tracking-widest">
                             {t("badge")}
                         </span>
@@ -35,7 +39,7 @@ export function About() {
                             {STATS.map((stat) => (
                                 <div
                                     key={stat.labelKey}
-                                    className={`flex flex-col items-center justify-center px-4 py-5 rounded-2xl border-2 ${stat.color}`}
+                                    className={`flex flex-col items-center justify-center px-4 py-5 rounded border-2 ${stat.color}`}
                                 >
                                     <span className="text-2xl font-bold">{stat.value}</span>
                                     <span className="text-xs font-medium mt-1 text-center leading-tight">
@@ -48,7 +52,7 @@ export function About() {
                             <Button
                                 asChild
                                 size="lg"
-                                className="flex-1 h-14 rounded-2xl font-bold text-base"
+                                className="flex-1 h-14 rounded font-bold text-base"
                             >
                                 <Link href="/contact">
                                     <Icon icon="solar:letter-bold-duotone" className="mr-2 w-5 h-5" />
@@ -59,7 +63,7 @@ export function About() {
                                 asChild
                                 variant="outline"
                                 size="lg"
-                                className="flex-1 h-14 rounded-2xl font-bold text-base border-2"
+                                className="flex-1 h-14 rounded font-bold text-base border-2"
                             >
                                 <a href="/cv.pdf" download>
                                     <Icon icon="solar:file-download-bold-duotone" className="mr-2 w-5 h-5" />
@@ -78,7 +82,7 @@ export function About() {
                                     href={social.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className={`flex-1 h-12 rounded-2xl flex items-center justify-center font-bold transition-all hover:scale-105 border border-border ${social.color}`}
+                                    className={`flex-1 h-12 rounded flex items-center justify-center font-bold transition-all hover:scale-105 border border-border ${social.color}`}
                                 >
                                     <Icon icon={social.icon} className="w-5 h-5" />
                                 </Link>
@@ -91,7 +95,7 @@ export function About() {
                             {EXPERIENCES.map((exp, index) => (
                                 <Card
                                     key={index}
-                                    className="flex flex-row items-start gap-4 p-4"
+                                    className="flex flex-row items-start gap-4 p-4 rounded"
                                 >
                                     <div className="flex flex-col items-center gap-2 shrink-0">
                                         <div className={`w-4 h-4 rounded-full ${exp.color} shadow-md mt-1`} />
@@ -108,9 +112,9 @@ export function About() {
                                                     {exp.company}
                                                 </p>
                                             </div>
-                                            <span className={`text-xs font-bold px-3 py-1.5 rounded-full border w-fit ${exp.lightColor} ${exp.borderColor}`}>
+                                            <span className={`text-xs font-bold ${exp.textColor}`}>
                                                 {exp.period[locale as "fr" | "en"]}
-                                            </span>
+                                            </span> 
                                         </div>
 
                                         <p className="text-sm text-muted-foreground leading-relaxed">
