@@ -81,13 +81,17 @@ export function Contact() {
 
   return (
     <section id="contact" className="w-full">
-      <div className="max-w-6xl mx-auto px-6 py-14 lg:py-18">
+      <div className="max-w-6xl mx-auto px-6 py-12 lg:py-14">
 
         <div className="flex flex-col items-center text-center gap-1 mb-6">
-            <div className="px-3 py-0 rounded-full bg-pink-50 dark:bg-pink-950/40 border border-pink-100 dark:border-pink-900">
-                <span className="text-xs font-bold text-pink-600 dark:text-pink-400 tracking-widest">
-                    {t("badge")}
-                </span>
+            <div className="flex items-center gap-2 w-fit px-3 py-1 rounded-full bg-pink-50 dark:bg-pink-950/40 border border-pink-100 dark:border-pink-900">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-pink-500" />
+              </span>
+              <span className="text-xs font-bold text-pink-600 dark:text-pink-400 tracking-widest">
+                {t("badge")}
+              </span>
             </div>
             <h2 className="text-xl md:text-2xl font-bold tracking-tighter text-foreground">
                 {t("title")}

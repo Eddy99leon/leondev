@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "./language-switcher";
 import { ThemeSwitcher } from "./theme-switcher";
 import MobileNav from "./MobileNav";
-import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
   { 
@@ -19,7 +18,7 @@ const NAV_LINKS = [
   { 
     href: "#about", 
     id: "about",
-    label: "À propos", 
+    label: "Parcours", 
     color: "bg-orange-50 text-orange-600 dark:bg-orange-950/50 dark:text-orange-400" 
   },
   { 
@@ -37,7 +36,6 @@ const NAV_LINKS = [
 ];
 
 const Navbar = () => {
-  const pathname = usePathname();
   const [activeSection, setActiveSection] = React.useState("hero");
 
   React.useEffect(() => {
@@ -51,14 +49,16 @@ const Navbar = () => {
           }
         });
       },
-      { 
-        threshold: 0.3
+      {
+        rootMargin: "-40% 0px -40% 0px",
+        threshold: 0
       }
     );
 
     sections.forEach((section) => observer.observe(section));
 
     const handleScroll = () => {
+      // Si on pointe tout en haut de la page, active l'accueil
       if (window.scrollY < 100) {
         setActiveSection("hero");
       }

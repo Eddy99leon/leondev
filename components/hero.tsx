@@ -23,7 +23,7 @@ const STATS = [
 ];
 
 const TECH_STACK = [
-  { icon: "logos:react", label: "React", color: "bg-blue-50 dark:bg-blue-950/40" },
+  { icon: "logos:react", label: "React.js", color: "bg-blue-50 dark:bg-blue-950/40" },
   { icon: "logos:nextjs-icon", label: "Next.js", color: "bg-muted" },
   { icon: "logos:typescript-icon", label: "TypeScript", color: "bg-blue-50 dark:bg-blue-950/40" },
   { icon: "logos:nodejs-icon", label: "Node.js", color: "bg-green-50 dark:bg-green-950/40" },
@@ -41,8 +41,8 @@ export function Hero() {
   // const t = useTranslations("Hero");
 
   return (
-    <section id="hero" className="w-full bg-background overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 py-16 lg:py-20">
+    <section id="hero" className="w-full overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 py-16 lg:py-18">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           <div className="flex flex-col gap-4">
@@ -75,7 +75,7 @@ export function Hero() {
               >
                 <Link href="#contact">
                   <Icon icon="solar:letter-bold-duotone" className="mr-2 w-5 h-5" />
-                  Contacte Moi
+                  Me Contacter
                 </Link>
               </Button>
               <Button
@@ -86,7 +86,7 @@ export function Hero() {
               >
                 <a href="/cv.pdf" download>
                   <Icon icon="solar:file-download-bold-duotone" className="mr-2 w-5 h-5" />
-                  Télécharge mon CV
+                  Télécharger mon CV
                 </a>
               </Button>
             </div>
