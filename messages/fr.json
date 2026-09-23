@@ -41,7 +41,7 @@
   "Contact": {
     "badge": "Contact",
     "title": "Travaillons ensemble",
-    "description": "Vous avez un projet en tête ? Je serais ravi d'en discuter. Envoyez-moi un message et je vous répondrai dans les 24 heures.",
+    "description": "Vous avez un projet en tête ? Je serais ravi d'en discuter. Envoyez-moi un message et je vous répondrai dans les 2 heures.",
     "form_name": "Nom complet",
     "form_name_placeholder": "John Doe",
     "form_email": "Adresse email",
@@ -57,7 +57,7 @@
     "info_email": "Email",
     "info_location": "Localisation",
     "info_availability": "Disponibilité",
-    "info_availability_value": "Lun - Ven, 9h - 18h",
+    "info_availability_value": "Imediatement",
     "info_response": "Temps de réponse",
     "info_response_value": "Sous 24 heures",
     "social_title": "Retrouvez-moi sur"

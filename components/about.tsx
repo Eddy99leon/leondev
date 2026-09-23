@@ -12,12 +12,12 @@ export function About() {
     const locale = useLocale();
 
     return (
-        <section className="w-full bg-background">
+        <section id="about" className="w-full bg-background">
             <div className="max-w-6xl mx-auto px-6 py-16 lg:py-20">
 
                 <div className="flex flex-col items-center text-center gap-2 mb-6">
-                    <div className="px-3 py-0 rounded-full bg-pink-50 dark:bg-pink-950/40 border border-pink-100 dark:border-pink-900">
-                        <span className="text-xs font-bold text-pink-600 dark:text-pink-400 tracking-widest">
+                    <div className="px-3 py-0 rounded-full bg-orange-50 dark:bg-orange-950/40 border border-orange-100 dark:border-orange-900">
+                        <span className="text-xs font-bold text-orange-600 dark:text-orange-400 tracking-widest">
                             {t("badge")}
                         </span>
                     </div>
@@ -29,7 +29,7 @@ export function About() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-10">
                     <div className="flex flex-col gap-6">
                         <p className="text-muted-foreground">
-                            {t("description")}
+                            Titulaire d'une Licence en Génie Logiciel, je conçois des applications web modernes, performantes et évolutives. Du design UI/UX jusqu'au déploiement backend, j'apporte des solutions concrètes aux besoins métier.
                         </p>
                         <div className="grid grid-cols-3 gap-3">
                             {STATS.map((stat) => (

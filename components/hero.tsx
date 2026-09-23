@@ -1,100 +1,105 @@
 "use client";
 
-import { useTranslations } from "next-intl";
-import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const STATS = [
-  { value: "3+", labelKey: "experience", color: "bg-violet-50 dark:bg-violet-950/40 text-violet-600 dark:text-violet-300 border-violet-100 dark:border-violet-900" },
-  { value: "20+", labelKey: "projects", color: "bg-pink-50 dark:bg-pink-950/40 text-pink-600 dark:text-pink-300 border-pink-100 dark:border-pink-900" },
-  { value: "100%", labelKey: "satisfaction", color: "bg-orange-50 dark:bg-orange-950/40 text-orange-600 dark:text-orange-300 border-orange-100 dark:border-orange-900" },
+  { 
+    value: "3+", 
+    label: "Ans d'expérience", 
+    color: "bg-violet-50 dark:bg-violet-950/40 text-violet-600 dark:text-violet-300 border-violet-100 dark:border-violet-900" 
+  },
+  { 
+    value: "15+", 
+    label: "Projets réalisés", 
+    color: "bg-pink-50 dark:bg-pink-950/40 text-pink-600 dark:text-pink-300 border-pink-100 dark:border-pink-900" 
+  },
+  { 
+    value: "100%", 
+    label: "Engagement & Rigueur", 
+    color: "bg-orange-50 dark:bg-orange-950/40 text-orange-600 dark:text-orange-300 border-orange-100 dark:border-orange-900" 
+  },
 ];
 
 const TECH_STACK = [
   { icon: "logos:react", label: "React", color: "bg-blue-50 dark:bg-blue-950/40" },
   { icon: "logos:nextjs-icon", label: "Next.js", color: "bg-muted" },
-  { icon: "logos:tailwindcss-icon", label: "Tailwind", color: "bg-cyan-50 dark:bg-cyan-950/40" },
   { icon: "logos:typescript-icon", label: "TypeScript", color: "bg-blue-50 dark:bg-blue-950/40" },
   { icon: "logos:nodejs-icon", label: "Node.js", color: "bg-green-50 dark:bg-green-950/40" },
-  { icon: "logos:postgresql", label: "PostgreSQL", color: "bg-indigo-50 dark:bg-indigo-950/40" },
+  { icon: "logos:nestjs", label: "NestJS", color: "bg-red-50 dark:bg-red-950/40" },
+  { icon: "logos:symfony", label: "Symfony", color: "bg-slate-100 dark:bg-slate-900/50" }
 ];
 
-const FLOATING_BADGES = [
-  { icon: "solar:code-bold-duotone", label: "Frontend", color: "bg-violet-500", pos: "top-4 -left-8" },
-  { icon: "solar:pen-bold-duotone", label: "Backend", color: "bg-pink-500", pos: "top-1/3 -left-12" },
-  { icon: "solar:rocket-bold-duotone", label: "UI/UX", color: "bg-orange-500", pos: "bottom-8 -left-8" },
+const PROFILE_BADGES = [
+  { icon: "solar:code-bold-duotone", label: "Frontend", color: "bg-violet-500" },
+  { icon: "solar:pen-bold-duotone", label: "Backend", color: "bg-pink-500" },
+  { icon: "solar:rocket-bold-duotone", label: "UI/UX", color: "bg-orange-500" },
 ];
 
 export function Hero() {
-  const t = useTranslations("Hero");
+  // const t = useTranslations("Hero");
 
   return (
-    <section className="w-full bg-background overflow-hidden">
+    <section id="hero" className="w-full bg-background overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 py-16 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4">
 
-            <div className="flex items-center gap-2 w-fit px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-900">
-              <span className="relative flex h-2 w-2">
+            <div className="flex items-center gap-2 w-fit px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-900 shadow-sm">
+              <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
               </span>
-              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 tracking-widest">
-                {t("badge")}
+              <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 tracking-widest">
+                disponible
               </span>
             </div>
 
-            <div className="flex flex-col gap-2">
-              <h1 className="text-3xl md:text-4xl lg:text-4xl font-bold tracking-tighter text-foreground leading-[1.05]">
-                {t("title1")}
-              </h1>
-              <h1 className="text-3xl md:text-4xl lg:text-4xl font-bold tracking-tighter leading-[1.05] text-primary">
-                {t("title2")}
-              </h1>
-              <h1 className="text-3xl md:text-4xl lg:text-4xl font-bold tracking-tighter text-foreground leading-[1.05]">
-                {t("title3")}
-              </h1>
-            </div>
+            <h1 className="flex flex-col text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter leading-[1.1]">
+              <span className="text-foreground">Je crée des</span>
+              <span className="text-primary">produits digitaux</span>
+              <span className="text-foreground">que les gens adorent.</span>
+            </h1>
 
             <p className="text-muted-foreground max-w-lg leading-relaxed">
-              {t("description")}
+              Titulaire d'une Licence en Génie Logiciel, je conçois des applications web modernes, performantes et évolutives. Du design UI/UX jusqu'au déploiement backend, j'apporte des solutions concrètes aux besoins métier.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex gap-3">
               <Button
-                asChild
-                size="lg"
-                className="h-12 px-8 rounded font-bold text-base"
+                  asChild
+                  size="lg"
+                  className="flex-1 h-12 font-bold text-base"
               >
-                <Link href="/contact">
-                  {t("cta_primary")}
-                  <Icon icon="solar:round-arrow-right-bold" className="ml-2 w-5 h-5" />
+                <Link href="#contact">
+                  <Icon icon="solar:letter-bold-duotone" className="mr-2 w-5 h-5" />
+                  Contacte Moi
                 </Link>
               </Button>
-
               <Button
                 asChild
                 variant="outline"
                 size="lg"
-                className="h-12 px-8 rounded font-bold text-base border-2"
+                className="flex-1 h-12 font-bold text-base border-2"
               >
-                <Link href="/projects">
-                  {t("cta_secondary")}
-                </Link>
+                <a href="/cv.pdf" download>
+                  <Icon icon="solar:file-download-bold-duotone" className="mr-2 w-5 h-5" />
+                  Télécharge mon CV
+                </a>
               </Button>
             </div>
 
             <div className="flex flex-wrap gap-3 pt-2">
               {STATS.map((stat) => (
                 <div
-                  key={stat.labelKey}
+                  key={stat.label}
                   className={`flex flex-col items-center px-4 py-2 rounded border-2 ${stat.color}`}
                 >
-                  <span className="text-xl font-bold">{stat.value}</span>
-                  <span className="text-xs font-medium mt-0.5 capitalize">
-                    {t(stat.labelKey as any)}
+                  <span className="text-xl font-black">{stat.value}</span>
+                  <span className="text-xs font-bold mt-0.5 uppercase tracking-wider opacity-80">
+                    {stat.label}
                   </span>
                 </div>
               ))}
@@ -107,50 +112,50 @@ export function Hero() {
             <div className="absolute w-32 h-32 rounded-3xl bg-pink-50 dark:bg-pink-950/30 bottom-0 -left-4 rotate-12 z-0" />
             <div className="absolute w-16 h-16 rounded-2xl bg-orange-50 dark:bg-orange-950/30 top-12 left-8 -rotate-6 z-0" />
 
-
             <div className="relative z-10 w-full max-w-sm">
-              <div className="bg-card rounded border-2 border-border p-6">
+              <div className="bg-card/80 backdrop-blur-sm rounded border-2 border-border p-4 shadow-xl">
 
-                <div className="flex flex-col items-center gap-4 pb-6 border-b border-border">
+                <div className="flex flex-col items-center gap-4 pb-4 border-b border-border">
                   <div className="relative">
-                    <div className="w-24 h-26 rounded-2xl overflow-hidden shadow-lg border-2 border-border">
+                    <div className="w-24 h-24 rounded-xl overflow-hidden shadow-lg border-2 border-border">
                       <img
                         src="/images/hero.png"
-                        alt="Leon Dev"
+                        alt="Eddy Léon - Développeur Fullstack"
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <div className="absolute -bottom-2 -right-2 w-7 h-7 rounded-full bg-emerald-500 border-2 border-background flex items-center justify-center">
+                    <div className="absolute -bottom-2 -right-2 w-8 h-8 rounded-full bg-emerald-500 border-4 border-card flex items-center justify-center shadow-sm">
                       <Icon icon="solar:check-circle-bold" className="text-white w-4 h-4" />
                     </div>
                   </div>
                   <div className="text-center">
                     <h3 className="text-xl font-bold text-card-foreground">Eddy Léon</h3>
-                    <p className="text-sm text-muted-foreground font-medium">Full-Stack Developer</p>
+                    <p className="text-sm text-muted-foreground font-semibold">Développeur Fullstack</p>
                   </div>
+                  
                   <div className="flex gap-2 flex-wrap justify-center">
-                    {FLOATING_BADGES.map((badge) => (
-                        <div
+                    {PROFILE_BADGES.map((badge) => (
+                      <div
                         key={badge.label}
-                        className={`flex items-center gap-1 pl-3 pr-4 py-2 rounded-2xl ${badge.color} text-white shadow-lg`}
-                        >
-                        <Icon icon={badge.icon} className="w-4 h-4" />
+                        className={`flex items-center gap-1.5 pl-3 pr-4 py-1.5 rounded ${badge.color} text-white shadow-sm cursor-default`}
+                      >
+                        <Icon icon={badge.icon} className="w-3.5 h-3.5" />
                         <span className="text-xs font-bold">{badge.label}</span>
-                        </div>
+                      </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Tech Stack */}
-                <div className="pt-5">
-                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-3">
-                    Tech Stack
+                <div className="pt-4">
+                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-2 text-center">
+                    Stack Technique
                   </p>
                   <div className="grid grid-cols-3 gap-2">
                     {TECH_STACK.map((tech) => (
                       <div
                         key={tech.label}
-                        className={`flex flex-col items-center gap-1.5 p-3 rounded-2xl ${tech.color} border border-border hover:-translate-y-1 transition-transform cursor-default`}
+                        className={`flex flex-col items-center gap-2 p-3 rounded ${tech.color} border border-border/50 hover:border-border hover:-translate-y-0.5 hover:shadow-md transition-all cursor-default`}
+                        title={tech.label}
                       >
                         <Icon icon={tech.icon} className="w-7 h-7" />
                         <span className="text-[10px] font-bold text-muted-foreground">{tech.label}</span>

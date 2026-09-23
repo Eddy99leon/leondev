@@ -13,8 +13,8 @@ const CONTACT_INFO = [
   {
     icon: "solar:letter-bold-duotone",
     labelKey: "info_email",
-    value: "hello@leon.dev",
-    href: "mailto:hello@leon.dev",
+    value: "eddyleon.dev@gmail.com",
+    href: "mailto:eddyleon.dev@gmail.com",
     color: "bg-violet-50 dark:bg-violet-950/40 text-violet-600 dark:text-violet-400 border-violet-100 dark:border-violet-900",
     iconBg: "bg-violet-500",
   },
@@ -34,14 +34,6 @@ const CONTACT_INFO = [
     color: "bg-orange-50 dark:bg-orange-950/40 text-orange-600 dark:text-orange-400 border-orange-100 dark:border-orange-900",
     iconBg: "bg-orange-500",
   },
-  {
-    icon: "solar:stopwatch-bold-duotone",
-    labelKey: "info_response",
-    valueKey: "info_response_value",
-    href: null,
-    color: "bg-pink-50 dark:bg-pink-950/40 text-pink-600 dark:text-pink-400 border-pink-100 dark:border-pink-900",
-    iconBg: "bg-pink-500",
-  },
 ];
 
 const SOCIAL_LINKS = [
@@ -56,19 +48,7 @@ const SOCIAL_LINKS = [
     href: "https://linkedin.com",
     label: "LinkedIn",
     color: "bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/40 border-blue-100 dark:border-blue-900",
-  },
-  {
-    icon: "mdi:twitter",
-    href: "https://twitter.com",
-    label: "Twitter",
-    color: "bg-sky-50 dark:bg-sky-950/40 text-sky-500 dark:text-sky-400 hover:bg-sky-100 dark:hover:bg-sky-900/40 border-sky-100 dark:border-sky-900",
-  },
-  {
-    icon: "mdi:dribbble",
-    href: "https://dribbble.com",
-    label: "Dribbble",
-    color: "bg-pink-50 dark:bg-pink-950/40 text-pink-500 dark:text-pink-400 hover:bg-pink-100 dark:hover:bg-pink-900/40 border-pink-100 dark:border-pink-900",
-  },
+  }
 ];
 
 type FormState = "idle" | "sending" | "success" | "error";
@@ -93,25 +73,19 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormState("sending");
-
-    // Simule un envoi (remplace par ton API)
     await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    // Simule succès
     setFormState("success");
     setForm({ name: "", email: "", subject: "", message: "" });
-
-    // Reset après 4 secondes
     setTimeout(() => setFormState("idle"), 4000);
   };
 
   return (
-    <section className="w-full">
+    <section id="contact" className="w-full">
       <div className="max-w-6xl mx-auto px-6 py-14 lg:py-18">
 
         <div className="flex flex-col items-center text-center gap-1 mb-6">
-            <div className="px-3 py-0 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-900">
-                <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 tracking-widest">
+            <div className="px-3 py-0 rounded-full bg-pink-50 dark:bg-pink-950/40 border border-pink-100 dark:border-pink-900">
+                <span className="text-xs font-bold text-pink-600 dark:text-pink-400 tracking-widest">
                     {t("badge")}
                 </span>
             </div>
@@ -123,17 +97,12 @@ export function Contact() {
             </p>
         </div>
 
-        {/* ===== MAIN GRID ===== */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-
-          {/* ===== COLONNE GAUCHE : Infos + Socials ===== */}
-          <div className="lg:col-span-2 flex flex-col gap-4">
-
-            {/* Infos de contact */}
+          <div className="lg:col-span-2 flex flex-col gap-6">
             {CONTACT_INFO.map((info) => (
               <div
                 key={info.labelKey}
-                className={`flex items-center gap-4 p-4 rounded-2xl border-2 ${info.color} hover:-translate-y-1 transition-all duration-300`}
+                className={`flex items-center gap-4 p-4 rounded-2xl border-2 ${info.color} hover:-translate-y-0.5 transition-all duration-300`}
               >
                 <div className={`w-10 h-10 rounded-xl ${info.iconBg} flex items-center justify-center shrink-0 shadow-md`}>
                   <Icon icon={info.icon} className="text-white w-5 h-5" />
@@ -158,7 +127,6 @@ export function Contact() {
               </div>
             ))}
 
-            {/* Réseaux Sociaux */}
             <div className="p-5 rounded-2xl border-2 border-border bg-background mt-2">
               <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-4">
                 {t("social_title")}
@@ -170,7 +138,7 @@ export function Contact() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`flex items-center gap-2 px-4 py-3 rounded-xl border transition-all hover:scale-105 ${social.color}`}
+                    className={`flex items-center gap-2 px-4 py-3 rounded-xl border transition-all ${social.color}`}
                   >
                     <Icon icon={social.icon} className="w-5 h-5" />
                     <span className="text-sm font-bold">{social.label}</span>
@@ -180,11 +148,9 @@ export function Contact() {
             </div>
           </div>
 
-          {/* ===== COLONNE DROITE : Formulaire ===== */}
           <div className="lg:col-span-3">
             <div className="p-8 rounded-3xl border-2 border-border bg-background shadow-[4px_4px_0px_rgba(0,0,0,0.04)]">
 
-              {/* Succès */}
               {formState === "success" && (
                 <div className="flex items-center gap-3 p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border-2 border-emerald-100 dark:border-emerald-900 mb-6">
                   <div className="w-8 h-8 rounded-xl bg-emerald-500 flex items-center justify-center shrink-0">
@@ -196,7 +162,6 @@ export function Contact() {
                 </div>
               )}
 
-              {/* Erreur */}
               {formState === "error" && (
                 <div className="flex items-center gap-3 p-4 rounded-2xl bg-red-50 dark:bg-red-950/40 border-2 border-red-100 dark:border-red-900 mb-6">
                   <div className="w-8 h-8 rounded-xl bg-red-500 flex items-center justify-center shrink-0">
@@ -209,8 +174,6 @@ export function Contact() {
               )}
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-
-                {/* Nom + Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-2">
                     <Label htmlFor="name" className="text-sm font-bold text-foreground">
@@ -243,7 +206,6 @@ export function Contact() {
                   </div>
                 </div>
 
-                {/* Sujet */}
                 <div className="flex flex-col gap-2">
                   <Label htmlFor="subject" className="text-sm font-bold text-foreground">
                     {t("form_subject")}
@@ -259,7 +221,6 @@ export function Contact() {
                   />
                 </div>
 
-                {/* Message */}
                 <div className="flex flex-col gap-2">
                   <Label htmlFor="message" className="text-sm font-bold text-foreground">
                     {t("form_message")}
@@ -276,7 +237,6 @@ export function Contact() {
                   />
                 </div>
 
-                {/* Submit */}
                 <Button
                   type="submit"
                   size="lg"

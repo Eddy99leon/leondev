@@ -1,13 +1,5 @@
 import Link from "next/link";
 import { Icon } from "@iconify/react";
-import { Button } from "@/components/ui/button";
-
-const NAV_LINKS = [
-  { href: "/", label: "Home", color: "text-emerald-600 bg-emerald-50" },
-  { href: "/projects", label: "Projects", color: "text-blue-600 bg-blue-50" },
-  { href: "/about", label: "About", color: "text-orange-600 bg-orange-50" },
-  { href: "/contact", label: "Contact", color: "text-pink-600 bg-pink-50" },
-];
 
 const SOCIAL_LINKS = [
   {
@@ -23,8 +15,8 @@ const SOCIAL_LINKS = [
     color: "bg-blue-50 text-blue-600 hover:bg-blue-100",
   },
   {
-    href: "https://twitter.com",
-    icon: "mdi:twitter",
+    href: "https://facebook.com",
+    icon: "mdi:facebook",
     label: "Twitter",
     color: "bg-sky-50 text-sky-500 hover:bg-sky-100",
   },
@@ -88,7 +80,7 @@ export const Footer = () => {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-4">
           <p className="text-sm text-muted-foreground">
             © {currentYear}{" "}
-            <span className="font-bold text-foreground">Leon.</span>{" "}
+            <span className="font-bold text-foreground">Léon.</span>{" "}
             All rights reserved.
           </p>
 

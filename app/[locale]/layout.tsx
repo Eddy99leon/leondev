@@ -24,11 +24,14 @@ export default async function LocaleLayout(props: {
       lang={locale} 
       suppressHydrationWarning
     >
-      <body className={cn(
-        "min-h-screen bg-background antialiased",
-        spaceGrotesk.variable,
-        "font-sans"
-      )}>
+      <body 
+        suppressHydrationWarning
+        className={cn(
+          "min-h-screen bg-background antialiased",
+          spaceGrotesk.variable,
+          "font-sans"
+        )}
+      >
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider>
             <div className="relative flex min-h-screen flex-col">
