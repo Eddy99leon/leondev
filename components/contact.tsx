@@ -29,7 +29,7 @@ const CONTACT_INFO = [
   {
     icon: "solar:clock-circle-bold-duotone",
     labelKey: "info_availability",
-    valueKey: "info_availability_value",
+    value: "info_availability_value",
     href: null,
     color: "bg-orange-50 dark:bg-orange-950/40 text-orange-600 dark:text-orange-400 border-orange-100 dark:border-orange-900",
     iconBg: "bg-orange-500",
@@ -120,7 +120,7 @@ export function Contact() {
                     </Link>
                   ) : (
                     <span className="text-sm font-bold">
-                      {info.value ?? t(info.valueKey as any)}
+                      {info.value ?? t(info.value as any)}
                     </span>
                   )}
                 </div>
@@ -172,7 +172,6 @@ export function Contact() {
                   </p>
                 </div>
               )}
-
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-2">

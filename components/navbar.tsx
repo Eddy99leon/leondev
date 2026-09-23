@@ -2,12 +2,12 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Icon } from "@iconify/react";
 import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "./language-switcher";
 import { ThemeSwitcher } from "./theme-switcher";
 import MobileNav from "./MobileNav";
+import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
   { 
@@ -122,7 +122,7 @@ const Navbar = () => {
           </Button>
 
           <div className="md:hidden">
-            <MobileNav pathname={pathname} />
+            <MobileNav activeSection={activeSection} />
           </div>
         </div>
       </div>

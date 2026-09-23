@@ -22,7 +22,7 @@ export function ProjectCard({
   viewProject: string;
 }) {
   return (
-    <Card className="p-0">
+    <Card className="p-0 group">
       <div className="relative w-full">
         <Carousel className="w-full">
           <CarouselContent>
@@ -36,7 +36,7 @@ export function ProjectCard({
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center gap-3">
+                    <div className={`w-full h-full flex flex-col items-center justify-center gap-3 ${project.color}`}>
                       <div className={`w-16 h-16 rounded-2xl ${project.iconColor} flex items-center justify-center`}>
                         <Icon icon={project.icon} className="text-white w-8 h-8" />
                       </div>
@@ -57,11 +57,11 @@ export function ProjectCard({
           </CarouselContent>
 
           {project.images.length > 1 && (
-            <>
-              <CarouselPrevious className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-xl bg-white/80 dark:bg-black/60 backdrop-blur-sm border border-border shadow-md opacity-0 group-hover:opacity-100 transition-opacity" />
-              <CarouselNext className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-xl bg-white/80 dark:bg-black/60 backdrop-blur-sm border border-border shadow-md opacity-0 group-hover:opacity-100 transition-opacity" />
-            </>
-          )}
+      <>
+        <CarouselPrevious className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-xl bg-white/80 dark:bg-black/60 backdrop-blur-sm border border-border shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+        <CarouselNext className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-xl bg-white/80 dark:bg-black/60 backdrop-blur-sm border border-border shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+      </>
+    )}
         </Carousel>
 
         {project.images.length > 1 && (
@@ -78,9 +78,14 @@ export function ProjectCard({
 
       <div className="flex flex-col gap-4 p-4 flex-1">
         <div className="flex items-center justify-between">
-          <h1 className="text-lg font-bold text-foreground">
-            {project.title}
-          </h1>
+          <div className="flex items-center gap-2">
+            <div className={`w-7 h-7 rounded-xl ${project.iconColor} flex items-center justify-center shrink-0`}>
+              <Icon icon={project.icon} className="text-white w-4 h-4" />
+            </div>
+            <h3 className="text-base font-bold text-foreground">
+              {project.title}
+            </h3>
+          </div>
 
           <div className="flex items-center gap-2">
             {project.githubUrl && (
