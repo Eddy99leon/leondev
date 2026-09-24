@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Icon } from "@iconify/react";
 import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "./language-switcher";
@@ -10,25 +11,21 @@ import MobileNav from "./MobileNav";
 
 const NAV_LINKS = [
   { 
-    href: "#hero", 
     id: "hero",
     label: "Accueil", 
     color: "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/50 dark:text-emerald-400" 
   },
   { 
-    href: "#about", 
     id: "about",
     label: "Parcours", 
     color: "bg-orange-50 text-orange-600 dark:bg-orange-950/50 dark:text-orange-400" 
   },
   { 
-    href: "#projects", 
     id: "projects",
-    label: "Projects", 
+    label: "Projets", 
     color: "bg-blue-50 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400" 
   },
   { 
-    href: "#contact", 
     id: "contact",
     label: "Contact", 
     color: "bg-pink-50 text-pink-600 dark:bg-pink-950/50 dark:text-pink-400" 
@@ -36,9 +33,13 @@ const NAV_LINKS = [
 ];
 
 const Navbar = () => {
+  const pathname = usePathname();
   const [activeSection, setActiveSection] = React.useState("hero");
+  const isHomePage = pathname === "/";
 
   React.useEffect(() => {
+    if (!isHomePage) return;
+
     const sections = document.querySelectorAll("section[id]");
 
     const observer = new IntersectionObserver(
@@ -69,7 +70,14 @@ const Navbar = () => {
       sections.forEach((section) => observer.unobserve(section));
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isHomePage]);
+
+  const getLinkHref = (id: string) => {
+    if (id === "hero") {
+      return isHomePage ? "#hero" : "/";
+    }
+    return isHomePage ? `#${id}` : `/#${id}`;
+  };
 
   return (
     <header className="w-full border-b border-border bg-background/80 backdrop-blur-md sticky top-0 z-50 transition-all">
@@ -86,12 +94,12 @@ const Navbar = () => {
 
         <nav className="hidden md:flex items-center gap-1.5">
           {NAV_LINKS.map((link) => {
-            const isActive = activeSection === link.id;
+            const isActive = isHomePage && activeSection === link.id;
 
             return (
               <Link
-                key={link.href}
-                href={link.href}
+                key={link.id}
+                href={getLinkHref(link.id)}
                 className={`px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 ${
                   isActive 
                     ? link.color 
@@ -114,7 +122,7 @@ const Navbar = () => {
             asChild
             className="hidden md:flex font-bold px-5 h-9 rounded-xl shadow-sm hover:shadow transition-all"
           >
-            <Link href="#contact" className="flex items-center gap-2">
+            <Link href={getLinkHref("contact")} className="flex items-center gap-2">
               <Icon icon="solar:letter-bold-duotone" className="w-4 h-4" />
               <span>Me contacter</span>
             </Link>

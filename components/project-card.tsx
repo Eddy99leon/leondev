@@ -39,7 +39,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Card className="group flex flex-col py-0 overflow-hidden rounded-xl border-2 border-border/80 bg-card/50 backdrop-blur-sm shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+    <Card className="group flex flex-col py-0 overflow-hidden rounded-xl border-2 border-border/80 bg-card/50 backdrop-blur-sm shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
       
       <div className="relative h-40 overflow-hidden bg-muted">
         <img
@@ -77,7 +77,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         <div className="flex flex-wrap gap-1.5 mt-auto">
-          {project.tags.slice(0, 4).map((tag) => (
+          {project.tags.slice(0, 8).map((tag) => (
             <span
               key={tag}
               className="flex items-center gap-1 px-2 py-0.5 rounded-md bg-muted/70 border border-border text-[10px] font-bold text-muted-foreground"
@@ -88,9 +88,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
               {tag}
             </span>
           ))}
-          {project.tags.length > 4 && (
+          {project.tags.length > 8 && (
             <span className="px-2 py-0.5 rounded-md bg-muted/70 border border-border text-[10px] font-bold text-muted-foreground">
-              +{project.tags.length - 4}
+              +{project.tags.length - 8}
             </span>
           )}
         </div>
@@ -126,7 +126,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             className="flex-1 h-9 rounded-xl font-bold text-sm"
           >
             <Link href={`/projects/${project.slug}`}>
-              <Icon icon="solar:arrow-right-up-bold-duotone" className="mr-1 w-5 h-5" />
+               <Icon icon="solar:file-text-bold-duotone" className="mr-1 w-5 h-5" />
               Détails
             </Link>
           </Button>

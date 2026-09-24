@@ -1,48 +1,46 @@
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { I18nProvider } from "@/components/i18n-provider";
 import { cn } from "@/lib/utils";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 import "./globals.css";
-import Navbar from '@/components/navbar';
-import Footer from '@/components/footer';
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk",
 });
 
-export default async function LocaleLayout(props: {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await props.params;
-  const messages = await getMessages({ locale });
+export const metadata: Metadata = {
+  title: "Eddy Léon | Développeur Fullstack",
+  description:
+    "Portfolio d'Eddy Léon, Développeur Fullstack React, Next.js, Node.js & NestJS.",
+};
 
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html 
-      lang={locale} 
-      suppressHydrationWarning
-    >
-      <body 
-        suppressHydrationWarning
+    <html lang="fr" suppressHydrationWarning>
+      <body
         className={cn(
           "min-h-screen bg-background antialiased",
           spaceGrotesk.variable,
           "font-sans"
         )}
       >
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <I18nProvider>
           <ThemeProvider>
             <div className="relative flex min-h-screen flex-col">
               <Navbar />
-              <main className="flex-1">
-                {props.children}
-              </main>
+              <main className="flex-1">{children}</main>
               <Footer />
             </div>
           </ThemeProvider>
-        </NextIntlClientProvider>
+        </I18nProvider>
       </body>
     </html>
   );
