@@ -1,17 +1,6 @@
-import createNextIntlPlugin from 'next-intl/plugin';
-
-const withNextIntl = createNextIntlPlugin();
-
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'flagcdn.com',
-        pathname: '/**',
-      },
-    ],
-  },
+  /* Tes options de config si tu en as */
 };
 
-export default withNextIntl(nextConfig);
+export default nextConfig;
