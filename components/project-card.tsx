@@ -2,128 +2,134 @@
 
 import Link from "next/link";
 import { Icon } from "@iconify/react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import type { Project } from "@/lib/projects";
-import { Card } from "./ui/card";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
-export function ProjectCard({
-  project,
-  locale,
-  viewProject,
-}: {
+const TAG_ICONS: Record<string, string> = {
+  "React": "logos:react",
+  "Next.js": "logos:nextjs-icon",
+  "Node.js": "logos:nodejs-icon",
+  "NestJS": "logos:nestjs",
+  "TypeScript": "logos:typescript-icon",
+  "Tailwind": "logos:tailwindcss-icon",
+  "PostgreSQL": "logos:postgresql",
+  "MongoDB": "logos:mongodb-icon",
+  "WebSockets": "logos:websocket",
+  "Socket.io": "logos:socket-io",
+  "Figma": "logos:figma",
+  "Express": "simple-icons:express",
+  "Symfony": "logos:symfony",
+};
+
+interface Project {
+  slug: string;
+  title: string;
+  description: string;
+  image: string;
+  category: string;
+  categoryColor: string;
+  tags: string[];
+  liveUrl: string | null;
+  featured?: boolean;
+}
+
+interface ProjectCardProps {
   project: Project;
-  locale: string;
-  viewProject: string;
-}) {
+}
+
+export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Card className="p-0 group">
-      <div className="relative w-full">
-        <Carousel className="w-full">
-          <CarouselContent>
-            {project.images.map((img, index) => (
-              <CarouselItem key={index}>
-                <div className="relative w-full h-52 bg-muted overflow-hidden">
-                  {img ? (
-                    <img
-                      src={img}
-                      alt={`${project.title} - screenshot ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <div className={`w-full h-full flex flex-col items-center justify-center gap-3 ${project.color}`}>
-                      <div className={`w-16 h-16 rounded-2xl ${project.iconColor} flex items-center justify-center`}>
-                        <Icon icon={project.icon} className="text-white w-8 h-8" />
-                      </div>
-                      <span className="text-xs font-bold text-muted-foreground">
-                        {project.title}
-                      </span>
-                    </div>
-                  )}
+    <Card className="group flex flex-col py-0 overflow-hidden rounded-xl border-2 border-border/80 bg-card/50 backdrop-blur-sm shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+      
+      <div className="relative h-40 overflow-hidden bg-muted">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover"
+        />
 
-                  <div className="absolute inset-x-0 bottom-0 h-16 bg-linear-to-t from-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-60" />
 
-                  <div className="absolute bottom-3 right-3 px-2 py-1 rounded-full bg-black/30 backdrop-blur-sm text-white text-[10px] font-bold">
-                    {index + 1} / {project.images.length}
-                  </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
+        <div className="absolute top-3 left-3">
+          <span className={`px-2.5 py-1 rounded-lg text-[10px] font-bold text-white shadow-md ${project.categoryColor}`}>
+            {project.category}
+          </span>
+        </div>
 
-          {project.images.length > 1 && (
-      <>
-        <CarouselPrevious className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-xl bg-white/80 dark:bg-black/60 backdrop-blur-sm border border-border shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-        <CarouselNext className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-xl bg-white/80 dark:bg-black/60 backdrop-blur-sm border border-border shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-      </>
-    )}
-        </Carousel>
-
-        {project.images.length > 1 && (
-          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
-            {project.images.map((_, i) => (
-              <div
-                key={i}
-                className="w-1.5 h-1.5 rounded-full bg-white/60"
-              />
-            ))}
+        {project.featured && (
+          <div className="absolute top-3 right-3">
+            <span className="flex items-center gap-1 px-2 py-1 rounded-lg bg-amber-500 text-[10px] font-bold text-white shadow-md">
+              <Icon icon="solar:star-bold" className="w-3 h-3" />
+              Featured
+            </span>
           </div>
         )}
       </div>
 
-      <div className="flex flex-col gap-4 p-4 flex-1">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className={`w-7 h-7 rounded-xl ${project.iconColor} flex items-center justify-center shrink-0`}>
-              <Icon icon={project.icon} className="text-white w-4 h-4" />
-            </div>
-            <h3 className="text-base font-bold text-foreground">
-              {project.title}
-            </h3>
-          </div>
-
-          <div className="flex items-center gap-2">
-            {project.githubUrl && (
-              <Link
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-8 h-8 rounded-xl bg-background border border-border flex items-center justify-center hover:scale-110 transition-transform"
-              >
-                <Icon icon="mdi:github" className="w-4 h-4 text-foreground" />
-              </Link>
-            )}
-            {project.liveUrl && (
-              <Link
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-8 h-8 rounded-xl bg-background border border-border flex items-center justify-center hover:scale-110 transition-transform"
-              >
-                <Icon icon="solar:arrow-right-up-bold" className="w-4 h-4 text-foreground" />
-              </Link>
-            )}
-          </div>
+      <div className="flex flex-col flex-1 px-3 pb-3 gap-2">
+        <div>
+          <h3 className="font-bold text-foreground group-hover:text-primary transition-colors">
+            {project.title}
+          </h3>
+          <p className="text-sm text-muted-foreground leading-relaxed mt-1 line-clamp-2">
+            {project.description}
+          </p>
         </div>
 
-        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2 flex-1">
-          {project.description[locale as "fr" | "en"]}
-        </p>
-
-        <div className="flex flex-wrap gap-1.5">
-          {project.tags.map((tag) => (
+        <div className="flex flex-wrap gap-1.5 mt-auto">
+          {project.tags.slice(0, 4).map((tag) => (
             <span
               key={tag}
-              className="px-2.5 py-1 rounded-lg bg-background border border-border text-[11px] font-bold text-muted-foreground"
+              className="flex items-center gap-1 px-2 py-0.5 rounded-md bg-muted/70 border border-border text-[10px] font-bold text-muted-foreground"
             >
+              {TAG_ICONS[tag] && (
+                <Icon icon={TAG_ICONS[tag]} className="w-3 h-3 shrink-0" />
+              )}
               {tag}
             </span>
           ))}
+          {project.tags.length > 4 && (
+            <span className="px-2 py-0.5 rounded-md bg-muted/70 border border-border text-[10px] font-bold text-muted-foreground">
+              +{project.tags.length - 4}
+            </span>
+          )}
+        </div>
+
+        <div className="flex gap-2 pt-3 border-t border-border mt-1">
+          {project.liveUrl ? (
+            <Button
+              asChild
+              size="sm"
+              className="flex-1 h-9 rounded-xl font-bold text-sm"
+            >
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                <Icon icon="solar:eye-bold-duotone" className="mr-1 w-5 h-5" />
+                Voir le live
+              </a>
+            </Button>
+          ) : (
+            <Button
+              size="sm"
+              disabled
+              variant="secondary"
+              className="flex-1 h-9 rounded-xl font-bold text-sm opacity-60"
+            >
+              <Icon icon="solar:eye-closed-bold-duotone" className="mr-1 w-5 h-5" />
+              Bientôt live
+            </Button>
+          )}
+
+          <Button
+            asChild
+            variant="outline"
+            size="sm"
+            className="flex-1 h-9 rounded-xl font-bold text-sm"
+          >
+            <Link href={`/projects/${project.slug}`}>
+              <Icon icon="solar:arrow-right-up-bold-duotone" className="mr-1 w-5 h-5" />
+              Détails
+            </Link>
+          </Button>
         </div>
       </div>
     </Card>

@@ -71,7 +71,7 @@ export function Hero() {
               <Button
                   asChild
                   size="lg"
-                  className="flex-1 h-12 font-bold text-base"
+                  className="flex-1 h-12 font-bold rounded-xl text-base"
               >
                 <Link href="#contact">
                   <Icon icon="solar:letter-bold-duotone" className="mr-2 w-5 h-5" />
@@ -82,7 +82,7 @@ export function Hero() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="flex-1 h-12 font-bold text-base border-2"
+                className="flex-1 h-12 font-bold rounded-xl text-base border-2"
               >
                 <a href="/cv.pdf" download>
                   <Icon icon="solar:file-download-bold-duotone" className="mr-2 w-5 h-5" />
@@ -95,7 +95,7 @@ export function Hero() {
               {STATS.map((stat) => (
                 <div
                   key={stat.label}
-                  className={`flex flex-col items-center px-4 py-2 rounded border-2 ${stat.color}`}
+                  className={`flex flex-col items-center px-4 py-2 rounded-xl border-2 ${stat.color}`}
                 >
                   <span className="text-xl font-black">{stat.value}</span>
                   <span className="text-xs font-bold mt-0.5 uppercase tracking-wider opacity-80">

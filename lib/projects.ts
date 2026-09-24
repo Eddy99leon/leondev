@@ -5,7 +5,7 @@ export type Project = {
     fr: string;
     en: string;
   };
-  images: string[]; // ← Tableau d'images au lieu d'une seule
+  images: string[];
   tags: string[];
   color: string;
   iconColor: string;
@@ -15,62 +15,38 @@ export type Project = {
   featured: boolean;
 };
 
-export const PROJECTS: Project[] = [
+export const PROJECTS = [
   {
-    id: "project-1",
-    title: "FinTrack",
-    description: {
-      fr: "Application de gestion financière personnelle avec tableaux de bord interactifs et analyses en temps réel.",
-      en: "Personal finance management app with interactive dashboards and real-time analytics.",
-    },
-    images: [
-      "/projets/heartbeats/image1.png",
-      "/projets/heartbeats/image2.png",
-    ],
-    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
-    color: "bg-violet-50 dark:bg-violet-950/40 border-violet-100 dark:border-violet-900",
-    iconColor: "bg-violet-500",
-    icon: "solar:wallet-bold-duotone",
-    liveUrl: "https://fintrack.com",
-    githubUrl: "https://github.com",
+    slug: "plateforme-rencontre",
+    title: "Plateforme de Rencontre",
+    description: "Application fullstack de mise en relation avec chat temps réel, gestion de profils et tableau de bord Community Manager.",
+    image: "/projets/heartbeats/image2.png",
+    category: "Fullstack",
+    categoryColor: "bg-violet-500",
+    tags: ["React", "Next.js", "NestJS", "WebSockets"],
+    liveUrl: "https://ton-projet.com",
     featured: true,
   },
   {
-    id: "project-2",
-    title: "MediCare",
-    description: {
-      fr: "Plateforme de gestion médicale pour cliniques avec prise de rendez-vous et suivi des patients.",
-      en: "Medical management platform for clinics with appointment booking and patient tracking.",
-    },
-    images: [
-      "/projets/heartbeats/image2.png",
-      "/projets/heartbeats/image1.png",
-    ],
-    tags: ["React", "Node.js", "MongoDB", "Tailwind"],
-    color: "bg-pink-50 dark:bg-pink-950/40 border-pink-100 dark:border-pink-900",
-    iconColor: "bg-pink-500",
-    icon: "solar:heart-pulse-bold-duotone",
-    liveUrl: "https://medicare.com",
-    githubUrl: "https://github.com",
-    featured: true,
+    slug: "dashboard-animation",
+    title: "Plateforme d'Animation",
+    description: "Outil de gestion et d'animation en temps réel pour les community managers avec notifications live.",
+    image: "/projets/heartbeats/image2.png",
+    category: "Fullstack",
+    categoryColor: "bg-pink-500",
+    tags: ["React", "Node.js", "Socket.io", "Tailwind"],
+    liveUrl: "https://ton-projet.com",
+    featured: false,
   },
   {
-    id: "project-3",
-    title: "ShopEasy",
-    description: {
-      fr: "E-commerce moderne avec gestion des stocks, paiements et tableau de bord analytique.",
-      en: "Modern e-commerce with inventory management, payments and analytics dashboard.",
-    },
-    images: [
-      "/projets/heartbeats/image1.png",
-      "/projets/heartbeats/image2.png",
-    ],
-    tags: ["Next.js", "Stripe", "Tailwind", "Supabase"],
-    color: "bg-orange-50 dark:bg-orange-950/40 border-orange-100 dark:border-orange-900",
-    iconColor: "bg-orange-500",
-    icon: "solar:bag-bold-duotone",
-    liveUrl: "https://shopeasy.com",
-    githubUrl: "https://github.com",
-    featured: true,
+    slug: "gestion-profils",
+    title: "Gestion de Profils",
+    description: "Module complet de gestion de profils utilisateurs avec upload d'images et sécurisation JWT.",
+    image: "/projets/heartbeats/image2.png",
+    category: "Frontend + API",
+    categoryColor: "bg-orange-500",
+    tags: ["Next.js", "TypeScript", "NestJS", "Figma"],
+    liveUrl: null,
+    featured: false,
   },
 ];

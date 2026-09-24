@@ -58,7 +58,6 @@ const Navbar = () => {
     sections.forEach((section) => observer.observe(section));
 
     const handleScroll = () => {
-      // Si on pointe tout en haut de la page, active l'accueil
       if (window.scrollY < 100) {
         setActiveSection("hero");
       }
