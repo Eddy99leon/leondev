@@ -4,40 +4,8 @@ import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-
-const TAG_ICONS: Record<string, string> = {
-  "React": "logos:react",
-  "Next.js": "logos:nextjs-icon",
-  "Node.js": "logos:nodejs-icon",
-  "NestJS": "logos:nestjs",
-  "TypeScript": "logos:typescript-icon",
-  "Tailwind": "logos:tailwindcss-icon",
-  "PostgreSQL": "logos:postgresql",
-  "MongoDB": "logos:mongodb-icon",
-  "WebSockets": "logos:websocket",
-  "Socket.io": "logos:socket-io",
-  "Figma": "logos:figma",
-  "Express": "simple-icons:express",
-  "Symfony": "logos:symfony",
-};
-
-interface Project {
-  slug: string;
-  title: string;
-  description: string;
-  longDescription: string;
-  image: string;
-  gallery?: string[];
-  category: string;
-  categoryColor: string;
-  tags: string[];
-  liveUrl: string | null;
-  githubUrl?: string | null;
-  featured?: boolean;
-  year: string;
-  role: string;
-  features: string[];
-}
+import { Project } from "@/lib/projects";
+import { TAG_ICONS } from "@/lib/icons";
 
 interface ProjectDetailProps {
   project: Project;
@@ -116,7 +84,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                 {project.description}
               </p>
             </div>
-            <div className="p-3 rounded-xl bg-muted/40 border border-border/50 space-y-2">
+            <div className="p-3.5 rounded-xl bg-muted/40 border border-border/50 space-y-3">
               <div className="flex items-center gap-3">
                 <div className="p-2 rounded-lg bg-primary/10 text-primary shrink-0">
                   <Icon icon="solar:user-rounded-bold-duotone" className="w-4 h-4" />
@@ -126,33 +94,25 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                   <p className="text-xs font-bold text-foreground">{project.role}</p>
                 </div>
               </div>
-
               <div className="flex items-center gap-3">
                 <div className="p-2 rounded-lg bg-primary/10 text-primary shrink-0">
-                  <Icon icon="solar:calendar-bold-duotone" className="w-4 h-4" />
+                  <Icon icon="solar:case-round-bold-duotone" className="w-4 h-4" />
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Année</p>
-                  <p className="text-xs font-bold text-foreground">{project.year}</p>
+                  <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Type de Projet</p>
+                  <p className="text-xs font-bold text-foreground">{project.projectType}</p>
                 </div>
               </div>
-            </div>
-            <div>
-              <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-3">
-                Stack Technique
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-muted/60 border border-border text-xs font-bold text-foreground"
-                  >
-                    {TAG_ICONS[tag] && (
-                      <Icon icon={TAG_ICONS[tag]} className="w-4 h-4 shrink-0" />
-                    )}
-                    {tag}
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-primary/10 text-primary shrink-0">
+                  <Icon icon="solar:rocket-2-bold-duotone" className="w-4 h-4" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Statut</p>
+                  <span className="text-xs font-bold text-foreground">
+                    {project.status}
                   </span>
-                ))}
+                </div>
               </div>
             </div>
             <div className="flex gap-3 lg:hidden">
@@ -170,23 +130,41 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
           <div className="lg:col-span-2">
-            <h2 className="text-lg font-bold text-foreground mb-2 flex items-center gap-2">
-              <Icon icon="solar:document-text-bold-duotone" className="w-5 h-5 text-primary" />
-              À propos du projet
-            </h2>
-            <div className="prose prose-sm dark:prose-invert max-w-none">
-              {project.longDescription.split("\n").map((paragraph, i) => (
-                paragraph.trim() && (
-                  <p key={i} className="text-muted-foreground leading-relaxed mb-2">
-                    {paragraph.trim()}
-                  </p>
-                )
-              ))}
+            <div className="mb-8">
+              <h2 className="text-sm font-bold uppercase tracking-widest mb-2">
+                Stack Technique
+              </h2>
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-muted/60 border border-border text-xs font-bold text-foreground"
+                  >
+                    {TAG_ICONS[tag] && (
+                      <Icon icon={TAG_ICONS[tag]} className="w-4 h-4 shrink-0" />
+                    )}
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h2 className="text-sm font-bold uppercase tracking-widest mb-2">
+                À propos du projet
+              </h2>
+              <div className="prose prose-sm dark:prose-invert max-w-none">
+                {project.longDescription.split("\n").map((paragraph, i) => (
+                  paragraph.trim() && (
+                    <p key={i} className="text-muted-foreground leading-relaxed mb-2">
+                      {paragraph.trim()}
+                    </p>
+                  )
+                ))}
+              </div>
             </div>
           </div>
           <div>
-            <h2 className="text-lg font-bold text-foreground mb-2 flex items-center gap-2">
-              <Icon icon="solar:checklist-minimalistic-bold-duotone" className="w-5 h-5 text-primary" />
+            <h2 className="text-sm font-bold uppercase tracking-widest mb-2">
               Fonctionnalités clés
             </h2>
             <Card className="p-4 rounded-xl bg-muted/40 border border-border/50">
@@ -208,8 +186,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
 
         {project.gallery && project.gallery.length > 0 && (
           <div className="mb-6">
-            <h2 className="text-lg font-bold text-foreground mb-2 flex items-center gap-2">
-              <Icon icon="solar:gallery-bold-duotone" className="w-5 h-5 text-primary" />
+            <h2 className="text-sm font-bold uppercase tracking-widest mb-2">
               Aperçus du projet
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

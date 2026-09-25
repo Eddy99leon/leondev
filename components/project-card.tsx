@@ -4,22 +4,7 @@ import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-
-const TAG_ICONS: Record<string, string> = {
-  "React": "logos:react",
-  "Next.js": "logos:nextjs-icon",
-  "Node.js": "logos:nodejs-icon",
-  "NestJS": "logos:nestjs",
-  "TypeScript": "logos:typescript-icon",
-  "Tailwind": "logos:tailwindcss-icon",
-  "PostgreSQL": "logos:postgresql",
-  "MongoDB": "logos:mongodb-icon",
-  "WebSockets": "logos:websocket",
-  "Socket.io": "logos:socket-io",
-  "Figma": "logos:figma",
-  "Express": "simple-icons:express",
-  "Symfony": "logos:symfony",
-};
+import { TAG_ICONS } from "@/lib/icons";
 
 interface Project {
   slug: string;

@@ -2,17 +2,7 @@
 
 import { Icon } from "@iconify/react";
 import { Card } from "@/components/ui/card";
-
-const TAG_ICONS: Record<string, string> = {
-  "React": "logos:react",
-  "Next.js": "logos:nextjs-icon",
-  "Node.js": "logos:nodejs-icon",
-  "NestJS": "logos:nestjs",
-  "WebSockets": "logos:websocket",
-  "Figma": "logos:figma",
-  "Express": "simple-icons:express",
-  "API REST": "solar:api-bold-duotone",
-};
+import { TAG_ICONS } from "@/lib/icons";
 
 const EXPERIENCES = [
   {
