@@ -43,4 +43,15 @@ export const TAG_ICONS: Record<string, string> = {
   "Git": "logos:git-icon",
   "GitHub": "logos:github-icon",
   "GitLab": "logos:gitlab",
+
+  "Prisma": "simple-icons:prisma",
+  "React Query": "simple-icons:reactquery",
+  "TanStack Query": "simple-icons:reactquery",
+  "CodeMirror": "simple-icons:codemirror",
+  "Recharts": "simple-icons:recharts",
+  "OAuth": "simple-icons:auth0",
+  "IA / LLM": "solar:magic-stick-3-bold-duotone",
+  "IA": "solar:magic-stick-3-bold-duotone",
+  "Gemini": "logos:google-gemini",
+  "Groq": "simple-icons:groq",
 };

@@ -62,7 +62,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         <div className="flex flex-wrap gap-1.5 mt-auto">
-          {project.tags.slice(0, 8).map((tag) => (
+          {project.tags.slice(0, 7).map((tag) => (
             <span
               key={tag}
               className="flex items-center gap-1 px-2 py-0.5 rounded-md bg-muted/70 border border-border text-[10px] font-bold text-muted-foreground"
@@ -73,9 +73,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
               {tag}
             </span>
           ))}
-          {project.tags.length > 8 && (
+          {project.tags.length > 7 && (
             <span className="px-2 py-0.5 rounded-md bg-muted/70 border border-border text-[10px] font-bold text-muted-foreground">
-              +{project.tags.length - 8}
+              +{project.tags.length - 7}
             </span>
           )}
         </div>

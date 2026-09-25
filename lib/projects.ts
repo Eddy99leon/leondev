@@ -45,7 +45,7 @@ export const PROJECTS: Project[] = [
     status: "En production",
     statusColor: "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30",
     projectType: "Projet Personnel",
-    tags: ["Next.js", "TypeScript", "Tailwind", "SWR", "PostgreSQL", "Drizzle ORM", "Google OAuth"],
+    tags: ["Next.js", "TypeScript", "Tailwind", "SWR", "PostgreSQL", "Drizzle ORM", "OAuth", "GitHub"],
     liveUrl: "https://kandra-mg.vercel.app",
     githubUrl: null,
     featured: true,
@@ -108,39 +108,59 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    slug: "dashboard-animation",
-    title: "Plateforme d'Animation",
-    description:
-      "Outil de gestion et d'animation en temps réel pour les community managers avec notifications live.",
-    longDescription: `Outil interne développé chez SK'HAY destiné aux Community Managers pour animer et piloter une communauté en temps réel.
+    slug: "kitrana",
+    title: "Kitrana — Plateforme d'Éducation Gamifiée",
+    description: "Plateforme EdTech d'entraînement et d'apprentissage gamifiée avec éditeur de code, suivi de progression, badges, inventaire, analytics et authentification OAuth.",
+    longDescription: `Kitrana est une plateforme d'éducation en ligne gamifiée conçue pour rendre l'apprentissage technique engageant, mesurable et immersif.
 
-J'ai développé l'interface d'administration, le système de notifications push/live, ainsi que les API de gestion des campagnes d'animation. L'objectif était de centraliser les actions d'engagement (messages, challenges, stats) dans un seul dashboard clair et performant.
+    J'ai conçu l'architecture fullstack de A à Z :
+    - Frontend Next.js (App Router) avec React 19, TypeScript, Tailwind et composants UI modernes (Radix / shadcn).
+    - Backend NestJS modulaire avec Prisma ORM, authentification JWT + OAuth (Google / GitHub), validation stricte et envoi d'emails.
+    - Expérience apprenant gamifiée : achievements, inventaire, scores, temps d'entraînement, progression et tableaux de bord analytiques (Recharts).
+    - Environnement d'entraînement technique avec éditeur de code multi-langages (CodeMirror : JS, Python, PHP, Java, C++, SQL).
 
-Le projet intègre des mises à jour live via Socket.io et une architecture backend Node.js robuste pour supporter un fort volume d'interactions simultanées.`,
-    image: "/projets/heartbeats/image2.png",
+    L'un des points centraux du projet est l'intégration de l'Intelligence Artificielle (Google Generative AI & Groq) dans le moteur pédagogique : les réponses des apprenants — qu'il s'agisse de texte libre ou de code — sont analysées, corrigées et évaluées automatiquement par l'IA. Celle-ci attribue un score, détecte les erreurs de logique et fournit un feedback personnalisé, permettant un apprentissage autonome sans intervention manuelle d'un correcteur.
+
+    Le data fetching est optimisé via TanStack React Query (cache, revalidation, états de chargement), garantissant une expérience utilisateur fluide et réactive sur l'ensemble de la plateforme.`,
+    image: "/projets/kandra/kandradark.png",
     gallery: [
-      "/projets/heartbeats/image2.png",
-      "/projets/heartbeats/image2.png",
-      "/projets/heartbeats/image2.png",
+      "/projets/kandra/kandradark.png",
+      "/projets/kandra/kandradark.png",
+      "/projets/kandra/kandradark.png",
     ],
-    category: "Fullstack",
-    categoryColor: "bg-pink-500",
-    status: "Terminé",
-    statusColor: "bg-pink-500/15 text-pink-600 dark:text-pink-400 border-pink-500/30",
-    projectType: "Projet en Entreprise",
-    tags: ["React", "Node.js", "Socket.io", "Tailwind", "Express"],
-    liveUrl: null,
+    category: "Fullstack EdTech",
+    categoryColor: "bg-blue-500",
+    status: "En développement",
+    statusColor: "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30",
+    projectType: "Projet Personnel",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind",
+      "NestJS",
+      "Prisma",
+      "IA / LLM",
+      "React Query",
+      "OAuth",
+      "CodeMirror",
+      "PostgreSQL"
+    ],
+    liveUrl: "https://kitrana.vercel.app",
     githubUrl: null,
     featured: false,
-    year: "2024",
-    role: "Développeur Fullstack JS",
+    year: "2024 - 2025",
+    role: "Développeur Fullstack (Next.js & NestJS)",
     features: [
-      "Dashboard temps réel",
-      "Notifications live (Socket.io)",
-      "Gestion des campagnes d'animation",
-      "Statistiques d'engagement",
-      "Interface responsive Tailwind",
-      "API REST sécurisées",
+      "Architecture fullstack découplée : Next.js (frontend) + NestJS (API)",
+      "Correction automatique et évaluation intelligente des réponses par IA (Google Gemini / Groq)",
+      "Éditeur de code multi-langages (JS, Python, PHP, Java, C++, SQL) via CodeMirror",
+      "Gamification complète : Achievements, badges, inventaire et progression",
+      "Tableaux de bord analytiques (score moyen, temps total, KPIs) avec Recharts",
+      "Authentification sécurisée JWT + OAuth (Google / GitHub)",
+      "Data fetching et cache client avec TanStack React Query",
+      "Dark Mode immersif et UI moderne (Tailwind + Radix/shadcn)",
+      "Backend NestJS avec Prisma ORM, validation stricte et envoi d'emails",
+      "Recherche globale d'entraînements et filtres avancés",
     ],
   },
 ];
