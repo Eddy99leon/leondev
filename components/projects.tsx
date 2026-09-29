@@ -6,7 +6,7 @@ import { ProjectCard } from "@/components/project-card";
 export function Projects() {
   return (
     <section id="projects" className="w-full bg-background">
-      <div className="max-w-6xl mx-auto px-6 py-12 lg:py-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
         <div className="flex flex-col items-center text-center gap-2 mb-6">
           <div className="flex items-center gap-2 w-fit px-3 py-1.5 rounded-full bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-900 shadow-sm">
             <span className="relative flex h-2.5 w-2.5">

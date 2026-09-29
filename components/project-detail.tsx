@@ -15,7 +15,7 @@ interface ProjectDetailProps {
 export function ProjectDetail({ project }: ProjectDetailProps) {
   return (
     <section className="w-full bg-background">
-      <div className="max-w-6xl mx-auto px-6 py-4 lg:py-4">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 lg:py-4">
         <div className="flex items-center justify-between mb-4">
           <Button
             asChild

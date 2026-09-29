@@ -36,7 +36,7 @@ export const Footer = () => {
 
   return (
     <footer className="w-full border-t border-border bg-background">
-      <div className="max-w-7xl mx-auto px-6 pt-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 pb-8 border-b border-border">
           
           <div className="flex flex-col gap-4">

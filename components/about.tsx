@@ -63,7 +63,7 @@ const SKILLS = [
 export function About() {
   return (
     <section id="about" className="w-full bg-background">
-      <div className="max-w-6xl mx-auto px-6 py-12 lg:py-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
 
         <div className="flex flex-col items-center text-center gap-3 mb-6">
           <div className="flex items-center gap-2 w-fit px-3 py-1.5 rounded-full bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-900 shadow-sm">
@@ -108,7 +108,7 @@ export function About() {
                   </span>
                 </div>
 
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
                   {exp.description}
                 </p>
 

@@ -81,7 +81,7 @@ const Navbar = () => {
 
   return (
     <header className="w-full border-b border-border bg-background/80 backdrop-blur-md sticky top-0 z-50 transition-all">
-      <div className="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
         
         <Link href="/" className="flex items-center gap-2.5 group">
           <div className="w-7 h-7 rounded-xl bg-primary flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
