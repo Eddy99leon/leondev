@@ -38,12 +38,10 @@ const PROFILE_BADGES = [
 ];
 
 export function Hero() {
-  // const t = useTranslations("Hero");
-
   return (
     <section id="hero" className="w-full overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 py-16 lg:py-18">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16 lg:py-18">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
 
           <div className="flex flex-col gap-4">
 
@@ -57,24 +55,24 @@ export function Hero() {
               </span>
             </div>
 
-            <h1 className="flex flex-col text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter leading-[1.1]">
+            <h1 className="flex flex-col text-4xl sm:text-4xl lg:text-5xl font-bold tracking-tighter leading-[1.1]">
               <span className="text-foreground">Je crée des</span>
               <span className="text-primary">produits digitaux</span>
               <span className="text-foreground">que les gens adorent.</span>
             </h1>
 
-            <p className="text-muted-foreground max-w-lg leading-relaxed">
+            <p className="text-muted-foreground max-w-lg leading-relaxed text-sm sm:text-base">
               Titulaire d'une Licence en Génie Logiciel, je conçois des applications web modernes, performantes et évolutives. Du design UI/UX jusqu'au déploiement backend, j'apporte des solutions concrètes aux besoins métier.
             </p>
 
-            <div className="flex gap-3">
+            <div className="flex gap-2 md:gap-3">
               <Button
-                  asChild
-                  size="lg"
-                  className="flex-1 h-12 font-bold rounded-xl text-base"
+                asChild
+                size="lg"
+                className="flex-1 h-10 sm:h-12 font-bold rounded-xl text-sm sm:text-base"
               >
                 <Link href="#contact">
-                  <Icon icon="solar:letter-bold-duotone" className="mr-2 w-5 h-5" />
+                  <Icon icon="solar:letter-bold-duotone" className="mr-1 sm:mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                   Me Contacter
                 </Link>
               </Button>
@@ -82,23 +80,23 @@ export function Hero() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="flex-1 h-12 font-bold rounded-xl text-base border-2"
+                className="flex-1 h-10 sm:h-12 font-bold rounded-xl text-sm sm:text-base border-2"
               >
                 <a href="/cv.pdf" download>
-                  <Icon icon="solar:file-download-bold-duotone" className="mr-2 w-5 h-5" />
+                  <Icon icon="solar:file-download-bold-duotone" className="mr-1 sm:mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                   Télécharger mon CV
                 </a>
               </Button>
             </div>
 
-            <div className="flex flex-wrap gap-3 pt-2">
+            <div className="flex flex-wrap gap-2.5 sm:gap-3 pt-2">
               {STATS.map((stat) => (
                 <div
                   key={stat.label}
-                  className={`flex flex-col items-center px-4 py-2 rounded-xl border-2 ${stat.color}`}
+                  className={`flex flex-col items-center flex-1 sm:flex-initial px-3 sm:px-4 py-2 rounded-xl border-2 ${stat.color}`}
                 >
                   <span className="text-xl font-black">{stat.value}</span>
-                  <span className="text-xs font-bold mt-0.5 uppercase tracking-wider opacity-80">
+                  <span className="text-[11px] sm:text-xs font-bold mt-0.5 uppercase tracking-wider opacity-80 text-center">
                     {stat.label}
                   </span>
                 </div>
@@ -108,9 +106,9 @@ export function Hero() {
 
           <div className="relative flex items-center justify-center">
 
-            <div className="absolute w-72 h-72 rounded-full bg-violet-50 dark:bg-violet-950/30 -top-8 -right-8 z-0" />
-            <div className="absolute w-32 h-32 rounded-3xl bg-pink-50 dark:bg-pink-950/30 bottom-0 -left-4 rotate-12 z-0" />
-            <div className="absolute w-16 h-16 rounded-2xl bg-orange-50 dark:bg-orange-950/30 top-12 left-8 -rotate-6 z-0" />
+            <div className="absolute w-60 h-60 sm:w-72 sm:h-72 rounded-full bg-violet-50 dark:bg-violet-950/30 -top-8 -right-8 z-0" />
+            <div className="absolute w-28 h-28 sm:w-32 sm:h-32 rounded-3xl bg-pink-50 dark:bg-pink-950/30 bottom-0 -left-4 rotate-12 z-0" />
+            <div className="absolute w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-orange-50 dark:bg-orange-950/30 top-12 left-8 -rotate-6 z-0" />
 
             <div className="relative z-10 w-full max-w-sm">
               <div className="bg-card/80 backdrop-blur-sm rounded border-2 border-border p-4 shadow-xl">
@@ -163,9 +161,11 @@ export function Hero() {
                     ))}
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
