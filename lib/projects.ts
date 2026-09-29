@@ -122,11 +122,13 @@ export const PROJECTS: Project[] = [
     L'un des points centraux du projet est l'intégration de l'Intelligence Artificielle (Google Generative AI & Groq) dans le moteur pédagogique : les réponses des apprenants — qu'il s'agisse de texte libre ou de code — sont analysées, corrigées et évaluées automatiquement par l'IA. Celle-ci attribue un score, détecte les erreurs de logique et fournit un feedback personnalisé, permettant un apprentissage autonome sans intervention manuelle d'un correcteur.
 
     Le data fetching est optimisé via TanStack React Query (cache, revalidation, états de chargement), garantissant une expérience utilisateur fluide et réactive sur l'ensemble de la plateforme.`,
-    image: "/projets/kandra/kandradark.png",
+    image: "/projets/kitrana/kitrana.png",
     gallery: [
-      "/projets/kandra/kandradark.png",
-      "/projets/kandra/kandradark.png",
-      "/projets/kandra/kandradark.png",
+      "/projets/kitrana/kitrana1.png",
+      "/projets/kitrana/kitrana2.png",
+      "/projets/kitrana/kitrana3.png",
+      "/projets/kitrana/kitrana4.png",
+      "/projets/kitrana/kitrana5.png",
     ],
     category: "Fullstack EdTech",
     categoryColor: "bg-blue-500",

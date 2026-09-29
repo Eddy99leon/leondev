@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Project } from "@/lib/projects";
 import { TAG_ICONS } from "@/lib/icons";
+import { ImageLightbox } from "./ui/image-lightbox";
 
 interface ProjectDetailProps {
   project: Project;
@@ -53,10 +54,12 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start mb-8">
           <div className="relative col-span-2 rounded overflow-hidden border border-border group">
-            <img
+            <ImageLightbox
               src={project.image}
               alt={project.title}
-              className="w-full h-80 object-cover aspect-4/3 transition-transform duration-500 group-hover:scale-[1.01]"
+              className="col-span-2 h-80"
+              imgClassName="aspect-[4/3]"
+              rounded="rounded-xl"
             />
             <div className="absolute top-4 left-4">
               <span className={`px-3 py-1.5 rounded-xl text-xs font-bold text-white shadow-lg ${project.categoryColor}`}>
@@ -191,16 +194,13 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {project.gallery.map((img, i) => (
-                <div
+                <ImageLightbox
                   key={i}
-                  className="rounded overflow-hidden border border-border transition-all group"
-                >
-                  <img
-                    src={img}
-                    alt={`${project.title} - aperçu ${i + 1}`}
-                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-[1.01]"
-                  />
-                </div>
+                  src={img}
+                  alt={`${project.title} - aperçu ${i + 1}`}
+                  className="h-48"
+                  rounded="rounded-xl"
+                />
               ))}
             </div>
           </div>
