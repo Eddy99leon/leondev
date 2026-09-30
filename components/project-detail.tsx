@@ -52,12 +52,12 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start mb-8">
-          <div className="relative col-span-2 rounded overflow-hidden border border-border group">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-10 items-start mb-8">
+          <div className="relative col-span-1 lg:col-span-2 rounded overflow-hidden border border-border group">
             <ImageLightbox
               src={project.image}
               alt={project.title}
-              className="col-span-2 h-80"
+              className="col-span-2 h-40 md:h-80"
               imgClassName="aspect-[4/3]"
               rounded="rounded-xl"
             />
@@ -67,7 +67,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
               </span>
             </div>
           </div>
-          <div className="flex flex-col gap-4">
+          <div className="col-span-1 flex flex-col gap-4 w-full">
             <div>
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">
@@ -118,7 +118,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                 </div>
               </div>
             </div>
-            <div className="flex gap-3 lg:hidden">
+            <div className="flex gap-3">
               {project.liveUrl && (
                 <Button asChild className="flex-1 h-11 rounded-xl font-bold">
                   <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
@@ -155,7 +155,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
               <h2 className="text-sm font-bold uppercase tracking-widest mb-2">
                 À propos du projet
               </h2>
-              <div className="prose prose-sm dark:prose-invert max-w-none">
+              <div className="prose prose-sm dark:prose-invert max-w-none text-sm md:text-base">
                 {project.longDescription.split("\n").map((paragraph, i) => (
                   paragraph.trim() && (
                     <p key={i} className="text-muted-foreground leading-relaxed mb-2">

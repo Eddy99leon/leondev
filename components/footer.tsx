@@ -36,10 +36,10 @@ export const Footer = () => {
 
   return (
     <footer className="w-full border-t border-border bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 pb-8 border-b border-border">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-8 sm:pt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-10 pb-6 sm:pb-8 border-b border-border">
           
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-2 sm:gap-4">
             <Link href="/" className="flex items-center gap-2.5 group w-fit">
               <div className="w-8 h-8 rounded-xl bg-primary flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
                 <Icon icon="solar:bolt-circle-bold-duotone" className="text-white text-xl" />
@@ -74,7 +74,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-4">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4 py-4">
           <p className="text-sm text-muted-foreground">
             © {currentYear}{" "}
             <span className="font-bold text-foreground">Eddy Léon.</span>{" "}

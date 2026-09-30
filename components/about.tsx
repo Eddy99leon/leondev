@@ -65,28 +65,28 @@ export function About() {
     <section id="about" className="w-full bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
 
-        <div className="flex flex-col items-center text-center gap-3 mb-6">
+        <div className="flex flex-col items-center text-center gap-1 sm:gap-2 mb-4 sm:mb-6">
           <div className="flex items-center gap-2 w-fit px-3 py-1.5 rounded-full bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-900 shadow-sm">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500" />
             </span>
-            <span className="text-xs font-bold text-orange-700 dark:text-orange-400 tracking-widest uppercase">
+            <span className="text-[10px] sm:text-xs font-bold text-orange-700 dark:text-orange-400 tracking-widest uppercase">
               Parcours & Compétences
             </span>
           </div>
 
-          <h2 className="text-xl md:text-2xl font-bold tracking-tighter text-foreground">
+          <h2 className="text-lg md:text-2xl font-bold tracking-tighter text-foreground">
             Expériences Professionnelles & Stack Technique
           </h2>
         </div>
 
-        <div className="flex flex-col gap-4 mb-6">
+        <div className="flex flex-col gap-2 sm:gap-4 mb-6">
           <h3 className="text-lg font-bold text-foreground">Expériences</h3>
           {EXPERIENCES.map((exp, index) => (
             <Card
               key={index}
-              className="flex flex-row items-start gap-4 p-5 rounded-xl border-2 border-border shadow-sm hover:shadow-md transition-shadow"
+              className="flex flex-row items-start gap-4 p-2 sm:p-5 rounded-xl border-2 border-border shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex flex-col items-center gap-2 shrink-0 pt-1">
                 <div className={`w-3.5 h-3.5 rounded-full ${exp.color} shadow-md`} />
@@ -130,13 +130,13 @@ export function About() {
           ))}
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2 sm:gap-4">
           <h3 className="text-lg font-bold text-foreground mb-1">Compétences Techniques</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {SKILLS.map((group) => (
               <Card
                 key={group.category}
-                className="flex flex-col gap-4 p-5 rounded-xl border-2 border-border"
+                className="flex flex-col gap-2 sm:gap-4 p-3 sm:p-5 rounded-xl border-2 border-border"
               >
                 <div className="flex items-center gap-2">
                   <div className={`w-2.5 h-2.5 rounded-full ${group.color}`} />

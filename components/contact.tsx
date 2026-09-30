@@ -38,13 +38,13 @@ const CONTACT_INFO = [
 const SOCIAL_LINKS = [
   {
     icon: "mdi:github",
-    href: "https://github.com",
+    href: "https://github.com/Eddy99leon",
     label: "GitHub",
     color: "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 border-slate-200 dark:border-slate-700",
   },
   {
     icon: "mdi:linkedin",
-    href: "https://linkedin.com",
+    href: "www.linkedin.com/in/eddy-andriamisaina-863431299",
     label: "LinkedIn",
     color: "bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/40 border-blue-100 dark:border-blue-900",
   }
@@ -86,21 +86,21 @@ export function Contact() {
     <section id="contact" className="w-full bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
 
-        <div className="flex flex-col items-center text-center gap-2 mb-6">
+        <div className="flex flex-col items-center text-center gap-1 sm:gap-2 mb-4 sm:mb-6">
           <div className="flex items-center gap-2 w-fit px-3 py-1.5 rounded-full bg-pink-50 dark:bg-pink-950/40 border border-pink-200 dark:border-pink-900 shadow-sm">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-pink-500" />
             </span>
-            <span className="text-xs font-bold text-pink-700 dark:text-pink-400 tracking-widest uppercase">
+            <span className="text-[10px] sm:text-xs font-bold text-pink-700 dark:text-pink-400 tracking-widest uppercase">
               Contact & Opportunités
             </span>
           </div>
 
-          <h2 className="text-xl md:text-2xl font-bold tracking-tighter text-foreground">
+          <h2 className="text-lg md:text-2xl font-bold tracking-tighter text-foreground">
             Discutons d'un Poste ou d'une Collaboration
           </h2>
-          <p className="text-muted-foreground max-w-3xl text-sm md:text-base leading-relaxed">
+          <p className="text-muted-foreground max-w-3xl text-xs md:text-base leading-relaxed">
             Vous recherchez un Développeur Fullstack réactif pour renforcer votre équipe ? N'hésitez pas à me contacter, je vous répondrai dans les plus brefs délais.
           </p>
         </div>
@@ -157,7 +157,7 @@ export function Contact() {
           </div>
 
           <div className="lg:col-span-3">
-            <div className="p-6 sm:p-8 rounded-2xl border-2 border-border/80 bg-card/50 backdrop-blur-sm shadow-lg">
+            <div className="p-4 sm:p-8 rounded-2xl border-2 border-border/80 bg-card/50 backdrop-blur-sm shadow-lg">
 
               {formState === "success" && (
                 <div className="flex items-center gap-3 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border-2 border-emerald-200 dark:border-emerald-900 mb-6">
