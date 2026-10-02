@@ -44,7 +44,7 @@ const SOCIAL_LINKS = [
   },
   {
     icon: "mdi:linkedin",
-    href: "www.linkedin.com/in/eddyleon-dev",
+    href: "https://www.linkedin.com/in/eddyleon-dev",
     label: "LinkedIn",
     color: "bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/40 border-blue-100 dark:border-blue-900",
   }
