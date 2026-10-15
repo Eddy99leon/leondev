@@ -1,15 +1,18 @@
+"use client";
+
 import Link from "next/link";
 import { Icon } from "@iconify/react";
+import { useTranslations } from "next-intl";
 
 const SOCIAL_LINKS = [
   {
-    href: "https://github.com",
+    href: "https://github.com/Eddy99leon",
     icon: "mdi:github",
     label: "GitHub",
     color: "bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700",
   },
   {
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/in/eddyleon-dev",
     icon: "mdi:linkedin",
     label: "LinkedIn",
     color: "bg-slate-100 dark:bg-slate-800 text-blue-600 dark:text-blue-400 hover:bg-slate-200 dark:hover:bg-slate-700",
@@ -23,15 +26,20 @@ const SOCIAL_LINKS = [
 ];
 
 const TECH_STACK = [
+  { icon: "logos:tailwindcss-icon", label: "Tailwind" },
   { icon: "logos:react", label: "React" },
   { icon: "logos:nextjs-icon", label: "Next.js" },
   { icon: "logos:typescript-icon", label: "TypeScript" },
   { icon: "logos:nodejs-icon", label: "Node.js" },
   { icon: "logos:nestjs", label: "NestJS" },
-  { icon: "logos:tailwindcss-icon", label: "Tailwind" },
+  { icon: "logos:symfony", label: "Symfony" },
+  { icon: "logos:postgresql", label: "PostgreSQL" },
+  { icon: "logos:mysql-icon", label: "MySQL" },
+  { icon: "logos:mongodb-icon", label: "MongoDB" },
 ];
 
 export const Footer = () => {
+  const t = useTranslations("Footer");
   const currentYear = new Date().getFullYear();
 
   return (
@@ -49,16 +57,16 @@ export const Footer = () => {
               </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-              Développeur Fullstack, je conçois des applications web modernes en mettant l'accent sur un design épuré et une excellente expérience utilisateur.
+              {t("description")}
             </p>
           </div>
 
           <div className="flex flex-col gap-3">
             <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">
-              Technologies Principales
+              {t("techStackTitle")}
             </span>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Conçu avec des technologies modernes pour garantir des performances et une expérience utilisateur optimales.
+              {t("techStackDescription")}
             </p>
             <div className="flex flex-wrap gap-2 mt-1">
               {TECH_STACK.map((tech) => (
@@ -78,7 +86,7 @@ export const Footer = () => {
           <p className="text-sm text-muted-foreground">
             © {currentYear}{" "}
             <span className="font-bold text-foreground">Eddy Léon.</span>{" "}
-            Tous droits réservés.
+            {t("copyright")}
           </p>
 
           <div className="flex items-center gap-2">
@@ -97,9 +105,9 @@ export const Footer = () => {
           </div>
 
           <p className="text-sm text-muted-foreground flex items-center gap-1.5">
-            Développé avec
+            {t("builtWith")}
             <Icon icon="solar:heart-bold" className="w-4 h-4 text-pink-600" />
-            en Next.js & Tailwind
+            {t("usingTech")}
           </p>
         </div>
       </div>

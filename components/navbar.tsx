@@ -4,38 +4,40 @@ import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Icon } from "@iconify/react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "./language-switcher";
 import { ThemeSwitcher } from "./theme-switcher";
 import MobileNav from "./MobileNav";
 
-const NAV_LINKS = [
-  { 
-    id: "hero",
-    label: "Accueil", 
-    color: "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/50 dark:text-emerald-400" 
-  },
-  { 
-    id: "about",
-    label: "Parcours", 
-    color: "bg-orange-50 text-orange-600 dark:bg-orange-950/50 dark:text-orange-400" 
-  },
-  { 
-    id: "projects",
-    label: "Projets", 
-    color: "bg-blue-50 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400" 
-  },
-  { 
-    id: "contact",
-    label: "Contact", 
-    color: "bg-pink-50 text-pink-600 dark:bg-pink-950/50 dark:text-pink-400" 
-  },
-];
-
-const Navbar = () => {
+export const Navbar = () => {
+  const t = useTranslations("Navbar");
   const pathname = usePathname();
   const [activeSection, setActiveSection] = React.useState("hero");
   const isHomePage = pathname === "/";
+
+  const NAV_LINKS = [
+    { 
+      id: "hero",
+      label: t("home"), 
+      color: "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/50 dark:text-emerald-400" 
+    },
+    { 
+      id: "about",
+      label: t("about"), 
+      color: "bg-orange-50 text-orange-600 dark:bg-orange-950/50 dark:text-orange-400" 
+    },
+    { 
+      id: "projects",
+      label: t("projects"), 
+      color: "bg-blue-50 text-blue-600 dark:bg-blue-950/50 dark:text-blue-400" 
+    },
+    { 
+      id: "contact",
+      label: t("contact"), 
+      color: "bg-pink-50 text-pink-600 dark:bg-pink-950/50 dark:text-pink-400" 
+    },
+  ];
 
   React.useEffect(() => {
     if (!isHomePage) return;
@@ -124,7 +126,7 @@ const Navbar = () => {
           >
             <Link href={getLinkHref("contact")} className="flex items-center gap-2">
               <Icon icon="solar:letter-bold-duotone" className="w-4 h-4" />
-              <span>Me contacter</span>
+              <span>{t("contactBtn")}</span>
             </Link>
           </Button>
 

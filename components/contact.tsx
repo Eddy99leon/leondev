@@ -3,37 +3,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-
-const CONTACT_INFO = [
-  {
-    icon: "solar:letter-bold-duotone",
-    label: "Email",
-    value: "eddyleon.dev@gmail.com",
-    href: "mailto:eddyleon.dev@gmail.com",
-    color: "bg-violet-50 dark:bg-violet-950/40 text-violet-600 dark:text-violet-400 border-violet-100 dark:border-violet-900",
-    iconBg: "bg-violet-500",
-  },
-  {
-    icon: "solar:phone-calling-bold-duotone",
-    label: "Téléphone / WhatsApp",
-    value: "+261 34 50 117 05",
-    href: "tel:+261345011705",
-    color: "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border-emerald-100 dark:border-emerald-900",
-    iconBg: "bg-emerald-500",
-  },
-  {
-    icon: "solar:map-point-bold-duotone",
-    label: "Localisation",
-    value: "Antananarivo, Madagascar",
-    href: null,
-    color: "bg-orange-50 dark:bg-orange-950/40 text-orange-600 dark:text-orange-400 border-orange-100 dark:border-orange-900",
-    iconBg: "bg-orange-500",
-  },
-];
 
 const SOCIAL_LINKS = [
   {
@@ -53,6 +27,7 @@ const SOCIAL_LINKS = [
 type FormState = "idle" | "sending" | "success" | "error";
 
 export function Contact() {
+  const t = useTranslations("Contact");
   const [formState, setFormState] = useState<FormState>("idle");
   const [form, setForm] = useState({
     name: "",
@@ -60,6 +35,33 @@ export function Contact() {
     subject: "",
     message: "",
   });
+
+  const CONTACT_INFO = [
+    {
+      icon: "solar:letter-bold-duotone",
+      label: t("emailLabel"),
+      value: "eddyleon.dev@gmail.com",
+      href: "mailto:eddyleon.dev@gmail.com",
+      color: "bg-violet-50 dark:bg-violet-950/40 text-violet-600 dark:text-violet-400 border-violet-100 dark:border-violet-900",
+      iconBg: "bg-violet-500",
+    },
+    {
+      icon: "solar:phone-calling-bold-duotone",
+      label: t("phoneLabel"),
+      value: "+261 34 50 117 05",
+      href: "tel:+261345011705",
+      color: "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border-emerald-100 dark:border-emerald-900",
+      iconBg: "bg-emerald-500",
+    },
+    {
+      icon: "solar:map-point-bold-duotone",
+      label: t("locationLabel"),
+      value: t("locationValue"),
+      href: null,
+      color: "bg-orange-50 dark:bg-orange-950/40 text-orange-600 dark:text-orange-400 border-orange-100 dark:border-orange-900",
+      iconBg: "bg-orange-500",
+    },
+  ];
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -93,15 +95,15 @@ export function Contact() {
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-pink-500" />
             </span>
             <span className="text-[10px] sm:text-xs font-bold text-pink-700 dark:text-pink-400 tracking-widest uppercase">
-              Contact & Opportunités
+              {t("badge")}
             </span>
           </div>
 
           <h2 className="text-lg md:text-2xl font-bold tracking-tighter text-foreground">
-            Discutons d'un Poste ou d'une Collaboration
+            {t("title")}
           </h2>
           <p className="text-muted-foreground max-w-3xl text-xs md:text-base leading-relaxed">
-            Vous recherchez un Développeur Fullstack réactif pour renforcer votre équipe ? N'hésitez pas à me contacter, je vous répondrai dans les plus brefs délais.
+            {t("subtitle")}
           </p>
         </div>
 
@@ -137,7 +139,7 @@ export function Contact() {
 
             <div className="p-5 rounded-xl border-2 border-border/80 bg-card/50 backdrop-blur-sm mt-1">
               <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-3">
-                Mes Réseaux Professionnels
+                {t("socialTitle")}
               </p>
               <div className="grid grid-cols-2 gap-2">
                 {SOCIAL_LINKS.map((social) => (
@@ -165,7 +167,7 @@ export function Contact() {
                     <Icon icon="solar:check-circle-bold" className="text-white w-5 h-5" />
                   </div>
                   <p className="text-sm font-bold text-emerald-700 dark:text-emerald-400">
-                    Votre message a bien été envoyé ! Je vous recontacterai rapidement.
+                    {t("successMessage")}
                   </p>
                 </div>
               )}
@@ -176,7 +178,7 @@ export function Contact() {
                     <Icon icon="solar:close-circle-bold" className="text-white w-5 h-5" />
                   </div>
                   <p className="text-sm font-bold text-red-700 dark:text-red-400">
-                    Une erreur est survenue lors de l'envoi. Veuillez réessayer ou m'envoyer un email direct.
+                    {t("errorMessage")}
                   </p>
                 </div>
               )}
@@ -185,21 +187,21 @@ export function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-2">
                     <Label htmlFor="name" className="text-xs font-bold uppercase tracking-wider text-foreground">
-                      Nom complet
+                      {t("nameLabel")}
                     </Label>
                     <Input
                       id="name"
                       name="name"
                       value={form.name}
                       onChange={handleChange}
-                      placeholder="Ex: Jean Dupont"
+                      placeholder={t("namePlaceholder")}
                       required
                       className="h-11 rounded-xl border-2 border-border bg-muted/20 focus:border-primary transition-colors font-medium text-sm"
                     />
                   </div>
                   <div className="flex flex-col gap-2">
                     <Label htmlFor="email" className="text-xs font-bold uppercase tracking-wider text-foreground">
-                      Adresse email
+                      {t("emailInputLabel")}
                     </Label>
                     <Input
                       id="email"
@@ -207,7 +209,7 @@ export function Contact() {
                       type="email"
                       value={form.email}
                       onChange={handleChange}
-                      placeholder="jean@entreprise.com"
+                      placeholder={t("emailPlaceholder")}
                       required
                       className="h-11 rounded-xl border-2 border-border bg-muted/20 focus:border-primary transition-colors font-medium text-sm"
                     />
@@ -216,14 +218,14 @@ export function Contact() {
 
                 <div className="flex flex-col gap-2">
                   <Label htmlFor="subject" className="text-xs font-bold uppercase tracking-wider text-foreground">
-                    Sujet
+                    {t("subjectLabel")}
                   </Label>
                   <Input
                     id="subject"
                     name="subject"
                     value={form.subject}
                     onChange={handleChange}
-                    placeholder="Ex: Proposition de poste Développeur Fullstack"
+                    placeholder={t("subjectPlaceholder")}
                     required
                     className="h-11 rounded-xl border-2 border-border bg-muted/20 focus:border-primary transition-colors font-medium text-sm"
                   />
@@ -231,14 +233,14 @@ export function Contact() {
 
                 <div className="flex flex-col gap-2">
                   <Label htmlFor="message" className="text-xs font-bold uppercase tracking-wider text-foreground">
-                    Message
+                    {t("messageLabel")}
                   </Label>
                   <Textarea
                     id="message"
                     name="message"
                     value={form.message}
                     onChange={handleChange}
-                    placeholder="Bonjour Eddy, nous avons parcouru votre profil et aimerions échanger avec vous..."
+                    placeholder={t("messagePlaceholder")}
                     required
                     rows={5}
                     className="rounded-xl border-2 border-border bg-muted/20 focus:border-primary transition-colors font-medium text-sm resize-none"
@@ -254,12 +256,12 @@ export function Contact() {
                   {formState === "sending" ? (
                     <>
                       <Icon icon="solar:refresh-bold-duotone" className="mr-2 w-5 h-5 animate-spin" />
-                      Envoi du message en cours...
+                      {t("sending")}
                     </>
                   ) : (
                     <>
                       <Icon icon="solar:letter-bold-duotone" className="mr-2 w-5 h-5" />
-                      Envoyer le message
+                      {t("send")}
                     </>
                   )}
                 </Button>

@@ -1,26 +1,9 @@
 "use client";
 
 import { Icon } from "@iconify/react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-
-const STATS = [
-  { 
-    value: "3+", 
-    label: "Ans d'expérience", 
-    color: "bg-violet-50 dark:bg-violet-950/40 text-violet-600 dark:text-violet-300 border-violet-100 dark:border-violet-900" 
-  },
-  { 
-    value: "15+", 
-    label: "Projets réalisés", 
-    color: "bg-pink-50 dark:bg-pink-950/40 text-pink-600 dark:text-pink-300 border-pink-100 dark:border-pink-900" 
-  },
-  { 
-    value: "100%", 
-    label: "Engagement & Rigueur", 
-    color: "bg-orange-50 dark:bg-orange-950/40 text-orange-600 dark:text-orange-300 border-orange-100 dark:border-orange-900" 
-  },
-];
 
 const TECH_STACK = [
   { icon: "logos:react", label: "React.js", color: "bg-blue-50 dark:bg-blue-950/40" },
@@ -38,6 +21,26 @@ const PROFILE_BADGES = [
 ];
 
 export function Hero() {
+  const t = useTranslations("Hero");
+
+  const STATS = [
+    { 
+      value: "3+", 
+      label: t("yearsExp"), 
+      color: "bg-violet-50 dark:bg-violet-950/40 text-violet-600 dark:text-violet-300 border-violet-100 dark:border-violet-900" 
+    },
+    { 
+      value: "15+", 
+      label: t("projectsCompleted"), 
+      color: "bg-pink-50 dark:bg-pink-950/40 text-pink-600 dark:text-pink-300 border-pink-100 dark:border-pink-900" 
+    },
+    { 
+      value: "100%", 
+      label: t("commitment"), 
+      color: "bg-orange-50 dark:bg-orange-950/40 text-orange-600 dark:text-orange-300 border-orange-100 dark:border-orange-900" 
+    },
+  ];
+
   return (
     <section id="hero" className="w-full overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16 lg:py-18">
@@ -50,19 +53,19 @@ export function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
               </span>
-              <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 tracking-widest">
-                disponible
+              <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 tracking-widest uppercase">
+                {t("available")}
               </span>
             </div>
 
             <h1 className="flex flex-col text-4xl sm:text-4xl lg:text-5xl font-bold tracking-tighter leading-[1.1]">
-              <span className="text-foreground">Je crée des</span>
-              <span className="text-primary">produits digitaux</span>
-              <span className="text-foreground">que les gens adorent.</span>
+              <span className="text-foreground">{t("titleLine1")}</span>
+              <span className="text-primary">{t("titleHighlight")}</span>
+              <span className="text-foreground">{t("titleLine2")}</span>
             </h1>
 
             <p className="text-muted-foreground max-w-lg leading-relaxed text-sm sm:text-base">
-              Titulaire d'une Licence en Génie Logiciel, je conçois des applications web modernes, performantes et évolutives. Du design UI/UX jusqu'au déploiement backend, j'apporte des solutions concrètes aux besoins métier.
+              {t("description")}
             </p>
 
             <div className="flex gap-2 md:gap-3">
@@ -73,7 +76,7 @@ export function Hero() {
               >
                 <Link href="#contact">
                   <Icon icon="solar:letter-bold-duotone" className="mr-1 sm:mr-2 w-4 h-4 sm:w-5 sm:h-5" />
-                  Me Contacter
+                  {t("contactBtn")}
                 </Link>
               </Button>
               <Button
@@ -84,7 +87,7 @@ export function Hero() {
               >
                 <a href="/cv.pdf" download>
                   <Icon icon="solar:file-download-bold-duotone" className="mr-1 sm:mr-2 w-4 h-4 sm:w-5 sm:h-5" />
-                  Télécharger mon CV
+                  {t("downloadCv")}
                 </a>
               </Button>
             </div>
@@ -93,10 +96,10 @@ export function Hero() {
               {STATS.map((stat) => (
                 <div
                   key={stat.label}
-                  className={`flex flex-col items-center flex-1 sm:flex-initial px-3 sm:px-4 py-2 rounded-xl border-2 ${stat.color}`}
+                  className={`flex flex-col items-center flex-1 sm:flex-initial px-2 sm:px-3 py-1 rounded-lg border-2 ${stat.color}`}
                 >
-                  <span className="text-xl font-black">{stat.value}</span>
-                  <span className="text-[11px] sm:text-xs font-bold mt-0.5 uppercase tracking-wider opacity-80 text-center">
+                  <span className="text-lg font-black">{stat.value}</span>
+                  <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider opacity-80 text-center">
                     {stat.label}
                   </span>
                 </div>
@@ -128,7 +131,7 @@ export function Hero() {
                   </div>
                   <div className="text-center">
                     <h3 className="text-xl font-bold text-card-foreground">Eddy Léon</h3>
-                    <p className="text-sm text-muted-foreground font-semibold">Développeur Fullstack</p>
+                    <p className="text-sm text-muted-foreground font-semibold">{t("role")}</p>
                   </div>
                   
                   <div className="flex gap-2 flex-wrap justify-center">
@@ -146,7 +149,7 @@ export function Hero() {
 
                 <div className="pt-4">
                   <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-2 text-center">
-                    Stack Technique
+                    {t("techStackTitle")}
                   </p>
                   <div className="grid grid-cols-3 gap-2">
                     {TECH_STACK.map((tech) => (

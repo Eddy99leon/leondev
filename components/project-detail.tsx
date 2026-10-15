@@ -2,17 +2,23 @@
 
 import Link from "next/link";
 import { Icon } from "@iconify/react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Project } from "@/lib/projects";
 import { TAG_ICONS } from "@/lib/icons";
 import { ImageLightbox } from "./ui/image-lightbox";
+import { Project, useProjectBySlug } from "@/lib/projects";
 
 interface ProjectDetailProps {
   project: Project;
 }
 
-export function ProjectDetail({ project }: ProjectDetailProps) {
+export function ProjectDetail({ project: initialProject }: ProjectDetailProps) {
+  const t = useTranslations("ProjectDetail");
+
+  const translatedProject = useProjectBySlug(initialProject.slug);
+  const project = translatedProject ?? initialProject;
+
   return (
     <section className="w-full bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 lg:py-4">
@@ -28,7 +34,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                 icon="solar:alt-arrow-left-bold-duotone" 
                 className="mr-1 w-5 h-5 text-primary transition-transform duration-300 group-hover:-translate-x-1" 
               />
-              <span>Retour aux projets</span>
+              <span>{t("backToProjects")}</span>
             </Link>
           </Button>
 
@@ -37,7 +43,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
               <Button asChild size="sm" className="font-bold">
                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                   <Icon icon="solar:eye-bold-duotone" className="mr-1 w-4 h-4" />
-                  Voir le live
+                  {t("viewLive")}
                 </a>
               </Button>
             )}
@@ -45,7 +51,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
               <Button asChild variant="outline" size="sm" className="rounded-xl font-bold h-9 border-2">
                 <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                   <Icon icon="mdi:github" className="mr-1.5 w-4 h-4" />
-                  Code
+                  {t("code")}
                 </a>
               </Button>
             )}
@@ -76,7 +82,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                 {project.featured && (
                   <span className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-600 dark:text-amber-400 text-[11px] font-bold border border-amber-500/30">
                     <Icon icon="solar:star-bold" className="w-3.5 h-3.5" />
-                    Projet phare
+                    {t("featured")}
                   </span>
                 )}
               </div>
@@ -93,7 +99,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                   <Icon icon="solar:user-rounded-bold-duotone" className="w-4 h-4" />
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Mon Rôle</p>
+                  <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">{t("myRole")}</p>
                   <p className="text-xs font-bold text-foreground">{project.role}</p>
                 </div>
               </div>
@@ -102,7 +108,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                   <Icon icon="solar:case-round-bold-duotone" className="w-4 h-4" />
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Type de Projet</p>
+                  <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">{t("projectType")}</p>
                   <p className="text-xs font-bold text-foreground">{project.projectType}</p>
                 </div>
               </div>
@@ -111,7 +117,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                   <Icon icon="solar:rocket-2-bold-duotone" className="w-4 h-4" />
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Statut</p>
+                  <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">{t("status")}</p>
                   <span className="text-xs font-bold text-foreground">
                     {project.status}
                   </span>
@@ -123,7 +129,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
                 <Button asChild className="flex-1 h-11 rounded-xl font-bold">
                   <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                     <Icon icon="solar:eye-bold-duotone" className="mr-2 w-5 h-5" />
-                    Voir le live
+                    {t("viewLive")}
                   </a>
                 </Button>
               )}
@@ -135,7 +141,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
           <div className="lg:col-span-2">
             <div className="mb-8">
               <h2 className="text-sm font-bold uppercase tracking-widest mb-2">
-                Stack Technique
+                {t("techStack")}
               </h2>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
@@ -153,7 +159,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             </div>
             <div>
               <h2 className="text-sm font-bold uppercase tracking-widest mb-2">
-                À propos du projet
+                {t("aboutProject")}
               </h2>
               <div className="prose prose-sm dark:prose-invert max-w-none text-sm md:text-base">
                 {project.longDescription.split("\n").map((paragraph, i) => (
@@ -168,7 +174,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
           </div>
           <div>
             <h2 className="text-sm font-bold uppercase tracking-widest mb-2">
-              Fonctionnalités clés
+              {t("keyFeatures")}
             </h2>
             <Card className="p-4 rounded-xl bg-muted/40 border border-border/50">
               <ul className="flex flex-col gap-3">
@@ -190,14 +196,14 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
         {project.gallery && project.gallery.length > 0 && (
           <div className="mb-6">
             <h2 className="text-sm font-bold uppercase tracking-widest mb-2">
-              Aperçus du projet
+              {t("projectPreviews")}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {project.gallery.map((img, i) => (
                 <ImageLightbox
                   key={i}
                   src={img}
-                  alt={`${project.title} - aperçu ${i + 1}`}
+                  alt={t("previewAlt", { title: project.title, number: i + 1 })}
                   className="h-48"
                   rounded="rounded-xl"
                 />

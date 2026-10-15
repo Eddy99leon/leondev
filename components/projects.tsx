@@ -1,9 +1,13 @@
 "use client";
 
-import { PROJECTS } from "@/lib/projects";
+import { useTranslations } from "next-intl";
+import { useProjects } from "@/lib/projects";
 import { ProjectCard } from "@/components/project-card";
 
 export function Projects() {
+  const t = useTranslations("Projects");
+  const projects = useProjects();
+
   return (
     <section id="projects" className="w-full bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
@@ -14,20 +18,20 @@ export function Projects() {
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500" />
             </span>
             <span className="text-[10px] sm:text-xs font-bold text-blue-700 dark:text-blue-400 tracking-widest uppercase">
-              Réalisations
+              {t("badge")}
             </span>
           </div>
 
           <h2 className="text-lg md:text-2xl font-bold tracking-tighter text-foreground">
-            Projets Sélectionnés
+            {t("title")}
           </h2>
           <p className="text-muted-foreground max-w-3xl text-xs md:text-base leading-relaxed">
-            Voici une sélection de projets sur lesquels j’ai travaillé, du design UI/UX jusqu’au déploiement backend.
+            {t("subtitle")}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PROJECTS.map((project) => (
+          {projects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
         </div>

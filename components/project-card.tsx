@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Icon } from "@iconify/react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { TAG_ICONS } from "@/lib/icons";
@@ -23,6 +24,8 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const t = useTranslations("ProjectCard");
+
   return (
     <Card className="group flex flex-col py-0 overflow-hidden rounded-xl border-2 border-border/80 bg-card/50 backdrop-blur-sm shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
       
@@ -45,7 +48,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <div className="absolute top-3 right-3">
             <span className="flex items-center gap-1 px-2 py-1 rounded-lg bg-amber-500 text-[10px] font-bold text-white shadow-md">
               <Icon icon="solar:star-bold" className="w-3 h-3" />
-              Featured
+              {t("featured")}
             </span>
           </div>
         )}
@@ -89,7 +92,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             >
               <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                 <Icon icon="solar:eye-bold-duotone" className="mr-1 w-5 h-5" />
-                Voir le live
+                {t("viewLive")}
               </a>
             </Button>
           ) : (
@@ -100,7 +103,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               className="flex-1 h-9 rounded-xl font-bold text-sm opacity-60"
             >
               <Icon icon="solar:eye-closed-bold-duotone" className="mr-1 w-5 h-5" />
-              Bientôt live
+              {t("comingSoon")}
             </Button>
           )}
 
@@ -111,8 +114,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
             className="flex-1 h-9 rounded-xl font-bold text-sm"
           >
             <Link href={`/projects/${project.slug}`}>
-               <Icon icon="solar:file-text-bold-duotone" className="mr-1 w-5 h-5" />
-              Détails
+              <Icon icon="solar:file-text-bold-duotone" className="mr-1 w-5 h-5" />
+              {t("details")}
             </Link>
           </Button>
         </div>

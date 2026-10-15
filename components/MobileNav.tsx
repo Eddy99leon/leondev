@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -14,40 +15,40 @@ import {
 import { LanguageSwitcher } from "./language-switcher";
 import { ThemeSwitcher } from "./theme-switcher";
 
-const NAV_LINKS = [
-  {
-    href: "/#hero",
-    sectionId: "hero",
-    label: "Accueil",
-    icon: "solar:home-bold-duotone",
-    color: "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400",
-  },
-  {
-    href: "/#about",
-    sectionId: "about",
-    label: "Parcours",
-    icon: "solar:user-bold-duotone",
-    color: "bg-orange-50 dark:bg-orange-950/40 text-orange-600 dark:text-orange-400",
-  },
-  {
-    href: "/#projects",
-    sectionId: "projects",
-    label: "Projets",
-    icon: "solar:code-square-bold-duotone",
-    color: "bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400",
-  },
-  {
-    href: "/#contact",
-    sectionId: "contact",
-    label: "Contact",
-    icon: "solar:letter-bold-duotone",
-    color: "bg-pink-50 dark:bg-pink-950/40 text-pink-600 dark:text-pink-400",
-  },
-];
-
 const MobileNav = ({ activeSection }: { activeSection: string }) => {
-  // 1. État pour contrôler l'ouverture / fermeture du Sheet
+  const t = useTranslations("Navbar");
   const [open, setOpen] = useState(false);
+
+  const NAV_LINKS = [
+    {
+      href: "/#hero",
+      sectionId: "hero",
+      label: t("home"),
+      icon: "solar:home-bold-duotone",
+      color: "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400",
+    },
+    {
+      href: "/#about",
+      sectionId: "about",
+      label: t("about"),
+      icon: "solar:user-bold-duotone",
+      color: "bg-orange-50 dark:bg-orange-950/40 text-orange-600 dark:text-orange-400",
+    },
+    {
+      href: "/#projects",
+      sectionId: "projects",
+      label: t("projects"),
+      icon: "solar:code-square-bold-duotone",
+      color: "bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400",
+    },
+    {
+      href: "/#contact",
+      sectionId: "contact",
+      label: t("contact"),
+      icon: "solar:letter-bold-duotone",
+      color: "bg-pink-50 dark:bg-pink-950/40 text-pink-600 dark:text-pink-400",
+    },
+  ];
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -59,7 +60,7 @@ const MobileNav = ({ activeSection }: { activeSection: string }) => {
 
       <SheetContent side="right" className="p-5 flex flex-col">
         <SheetHeader className="text-left mb-6">
-          <SheetTitle className="text-2xl font-bold">Menu</SheetTitle>
+          <SheetTitle className="text-2xl font-bold">{t("menuTitle")}</SheetTitle>
         </SheetHeader>
 
         <div className="flex flex-col gap-2 flex-1">
@@ -69,7 +70,7 @@ const MobileNav = ({ activeSection }: { activeSection: string }) => {
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={() => setOpen(false)} // 👈 FERME LE SHEET AU CLIC
+                onClick={() => setOpen(false)}
                 className={`flex items-center gap-3 p-4 rounded-2xl text-base font-bold transition-all ${
                   isActive
                     ? link.color
@@ -89,7 +90,7 @@ const MobileNav = ({ activeSection }: { activeSection: string }) => {
         <div className="flex flex-col gap-3 mt-6 pt-6 border-t border-border">
           <div className="flex items-center justify-between px-2">
             <span className="text-xs font-bold text-muted-foreground uppercase tracking-widest">
-              Thème & Langue
+              {t("themeAndLang")}
             </span>
             <div className="flex items-center gap-2">
               <LanguageSwitcher />
@@ -104,7 +105,7 @@ const MobileNav = ({ activeSection }: { activeSection: string }) => {
           >
             <Link href="/#contact">
               <Icon icon="solar:letter-bold-duotone" className="mr-2 w-5 h-5" />
-              Me contacter
+              {t("contactBtn")}
             </Link>
           </Button>
         </div>

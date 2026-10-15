@@ -3,6 +3,7 @@
 import * as React from "react";
 import { useTheme } from "next-themes";
 import { Icon } from "@iconify/react";
+import { useTranslations } from "next-intl";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,6 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export function ThemeSwitcher() {
+  const t = useTranslations("ThemeSwitcher");
   const { setTheme, theme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
@@ -25,14 +27,14 @@ export function ThemeSwitcher() {
   }
 
   const themes = [
-    { value: "light", label: "Clair", icon: "solar:sun-2-bold-duotone" },
-    { value: "dark", label: "Sombre", icon: "solar:moon-bold-duotone" },
-    { value: "system", label: "Système", icon: "solar:monitor-bold-duotone" },
+    { value: "light", label: t("light"), icon: "solar:sun-2-bold-duotone" },
+    { value: "dark", label: t("dark"), icon: "solar:moon-bold-duotone" },
+    { value: "system", label: t("system"), icon: "solar:monitor-bold-duotone" },
   ];
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="outline-none group cursor-pointer">
+      <DropdownMenuTrigger className="outline-none group cursor-pointer" aria-label="Changer le thème / Toggle theme">
         <div className="flex items-center p-1.5 rounded-full border border-border hover:bg-muted/60 transition-colors">
           <Icon 
             icon={resolvedTheme === "dark" ? "solar:moon-bold-duotone" : "solar:sun-2-bold-duotone"} 

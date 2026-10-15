@@ -5,61 +5,179 @@
       "english": "Anglais"
     }
   },
+  "ThemeSwitcher": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "Navbar": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact",
+    "contactBtn": "Contact me",
+    "menuTitle": "Menu",
+    "themeAndLang": "Theme & Language"
+  },
   "Hero": {
-    "badge": "Available for new projects",
-    "title1": "I build",
-    "title2": "digital products",
-    "title3": "that people love.",
-    "description": "Freelance Full-Stack Developer specialized in building modern web applications with a focus on clean design and great user experience.",
-    "cta_primary": "Start a project",
-    "cta_secondary": "View my work",
-    "experience": "years of experience",
-    "projects": "projects delivered",
-    "satisfaction": "happy clients"
+    "available": "available",
+    "titleLine1": "I build",
+    "titleHighlight": "digital products",
+    "titleLine2": "that people love.",
+    "description": "Holding a Bachelor's Degree in Software Engineering, I create modern, high-performance, and scalable web applications. From UI/UX design to backend deployment, I deliver concrete solutions to business needs.",
+    "contactBtn": "Contact Me",
+    "downloadCv": "Download CV",
+    "yearsExp": "Years of experience",
+    "projectsCompleted": "Projects completed",
+    "commitment": "Dedication & Rigor",
+    "role": "Fullstack Developer",
+    "techStackTitle": "Tech Stack"
   },
   "Projects": {
-    "badge": "My Projects",
-    "title": "What I've built",
-    "description": "A selection of projects built for clients and personal use.",
-    "view_project": "View project",
-    "view_code": "Source code",
-    "view_all": "View all projects"
+    "badge": "Portfolio",
+    "title": "Selected Projects",
+    "subtitle": "Here is a selection of projects I worked on, from UI/UX design to backend deployment.",
+    "statuses": {
+      "inProduction": "In Production",
+      "inDevelopment": "In Development",
+      "completed": "Completed",
+      "maintenance": "Maintenance"
+    },
+    "projectTypes": {
+      "personal": "Personal Project",
+      "company": "Company Project",
+      "internship": "Internship Project"
+    },
+    "items": {
+      "kandra": {
+        "title": "Kandra — Recruitment Platform",
+        "description": "Comprehensive HR platform connecting candidates, companies, and job offers with interactive dashboards and dynamic filters.",
+        "category": "Fullstack SaaS",
+        "role": "Fullstack Developer & UI/UX Designer",
+        "longDescription": "Kandra is a modern HR SaaS platform designed to transform and simplify the connection between candidates, companies, and recruiters. The project's goal was to create a comprehensive, smooth, and intuitive ecosystem capable of processing complex data flows while delivering a professional-grade user experience.\n\nAs a fullstack developer, I handled the overall application design from A to Z. On the backend and data side, I architected a robust PostgreSQL database modeled with Drizzle ORM, ensuring responsive queries and strict end-to-end typing with TypeScript. To provide an ultra-smooth navigation experience without page reloads, I integrated a smart client-side caching and automatic revalidation strategy using SWR.\n\nThe application features secure hybrid authentication (Google OAuth & JWT sessions), comprehensive analytical dashboards generating real-time statistics (application KPIs, job views, engagement metrics), as well as a responsive search engine with dynamic filters by job, industry, and region. A real-time notification system (dynamic Navbar badge and email alerts) instantly informs users of key recruitment milestones.\n\nThe ecosystem centers around 3 dedicated spaces:\n- Candidate Space: profile management, 1-click application, job saving, and real-time tracking.\n- Company Space: job posting, candidate pipeline management, and recruitment analytics.\n- Admin Dashboard: account moderation, global platform monitoring, and taxonomy management.",
+        "features": [
+          "Hybrid Authentication: Google OAuth & JWT (Email/Password)",
+          "Role Management (Talents, Companies, Admin)",
+          "Analytical Dashboards & Multi-profile Activity Stats",
+          "Search Engine & Filters by Sector, Job, and Region",
+          "Candidate Portal: Application Tracking & Job Saving",
+          "Company Portal: Job Posting & Candidate Pipeline",
+          "Admin Dashboard: Account Moderation & Taxonomy Management",
+          "Real-time Notification System (Navbar & Email Alerts)",
+          "Smart Cache Management with SWR (Smooth UI & Real-time)",
+          "Reactive PostgreSQL Databases"
+        ]
+      },
+      "heartbeats": {
+        "title": "Heartbeats — Dating & Community Platform",
+        "description": "High-traffic international community and dating web platform featuring real-time chat (WebSockets), multi-language support (8 languages), dark/light mode, and credit system.",
+        "category": "Fullstack Web App",
+        "role": "Fullstack Developer JS / PHP",
+        "longDescription": "Heartbeats is a high-traffic international dating and community platform developed at SK'HAY.\n\nAs a Fullstack Developer, I led all development stages: from UI/UX prototyping on Figma to implementing a decoupled architecture combining a robust Symfony backend (REST API) with MySQL, and a reactive frontend developed in React with Material UI (MUI). The project was managed as a team using GitLab for version control and integration.\n\nThe application offers a complete real-time experience via WebSockets (instant messaging, interaction notifications, likes, winks, virtual gifts), a credit-based monetary system with visibility boosts, full internationalization (i18n) in 8 languages, dark/light mode management, and advanced search based on geolocation and affinities.",
+        "features": [
+          "Instant Messaging & Real-Time Chat (WebSockets)",
+          "Credit System, User Balance & Boosted Profiles",
+          "Live Interactions: Likes, Winks, Virtual Gifts & Chat Requests",
+          "Advanced Search Engine with Geographic Filters & Affinity Criteria",
+          "Community Space, Blog & Online Events",
+          "Complex & Responsive User Interface with React and Material UI (MUI)",
+          "Dark / Light Mode for an Adaptable User Experience",
+          "Full Internationalization (i18n) in 8 Languages",
+          "Robust Backend & Secure REST APIs Developed with Symfony"
+        ]
+      },
+      "kitrana": {
+        "title": "Kitrana — Gamified Education Platform",
+        "description": "Gamified EdTech training and learning platform with code editor, progress tracking, badges, inventory, analytics, and OAuth authentication.",
+        "category": "Fullstack EdTech",
+        "role": "Fullstack Developer (Next.js & NestJS)",
+        "longDescription": "Kitrana is a gamified online education platform designed to make technical learning engaging, measurable, and immersive.\n\nI architected the entire fullstack setup from A to Z:\n- Next.js (App Router) Frontend with React 19, TypeScript, Tailwind, and modern UI components (Radix / shadcn).\n- Modular NestJS Backend with Prisma ORM, JWT + OAuth (Google / GitHub) authentication, strict validation, and email delivery.\n- Gamified learner experience: achievements, inventory, scores, training time, progress, and analytical dashboards (Recharts).\n- Technical training environment with a multi-language code editor (CodeMirror: JS, Python, PHP, Java, C++, SQL).\n\nA central highlight of the project is the integration of Artificial Intelligence (Google Generative AI & Groq) into the pedagogical engine: learners' responses—whether free text or code—are automatically analyzed, corrected, and evaluated by AI. It assigns a score, detects logical errors, and provides personalized feedback, enabling autonomous learning without manual grading.\n\nData fetching is optimized via TanStack React Query (caching, revalidation, loading states), ensuring a smooth and responsive user experience across the platform.",
+        "features": [
+          "Decoupled Fullstack Architecture: Next.js (frontend) + NestJS (API)",
+          "Automated Grading & AI-Powered Answer Evaluation (Google Gemini / Groq)",
+          "Multi-language Code Editor (JS, Python, PHP, Java, C++, SQL) via CodeMirror",
+          "Complete Gamification: Achievements, Badges, Inventory, and Progress",
+          "Analytical Dashboards (Average Score, Total Time, KPIs) with Recharts",
+          "Secure JWT Authentication + OAuth (Google / GitHub)",
+          "Data Fetching and Client Caching with TanStack React Query",
+          "Immersive Dark Mode and Modern UI (Tailwind + Radix/shadcn)",
+          "NestJS Backend with Prisma ORM, Strict Validation, and Email Delivery",
+          "Global Training Search and Advanced Filters"
+        ]
+      }
+    }
+  },
+  "ProjectCard": {
+    "featured": "Featured",
+    "viewLive": "Live Demo",
+    "comingSoon": "Coming Soon",
+    "details": "Details"
+  },
+  "ProjectDetail": {
+    "backToProjects": "Back to projects",
+    "viewLive": "Live Demo",
+    "code": "Code",
+    "featured": "Featured Project",
+    "myRole": "My Role",
+    "projectType": "Project Type",
+    "status": "Status",
+    "techStack": "Tech Stack",
+    "aboutProject": "About the project",
+    "keyFeatures": "Key Features",
+    "projectPreviews": "Project Previews",
+    "previewAlt": "{title} - preview {number}"
   },
   "About": {
-    "badge": "About me",
-    "title": "Passionate about code and design",
-    "description": "I'm a freelance Full-Stack developer with over 5 years of experience building modern web applications. I combine strong technical skills with a keen eye for design to deliver products that make a difference.",
-    "skills_title": "Skills",
-    "experience_title": "Experience",
-    "download_cv": "Download my CV",
-    "contact_me": "Contact me",
-    "years_exp": "Years of experience",
-    "projects_done": "Projects done",
-    "clients": "Happy clients",
-    "present": "Present"
+    "badge": "Background & Skills",
+    "title": "Professional Experience & Tech Stack",
+    "experiencesTitle": "Experience",
+    "skillsTitle": "Technical Skills",
+    "exp1": {
+      "role": "Fullstack JS Developer",
+      "company": "SK'HAY — Ambatoroka",
+      "period": "Nov 2023 – Sep 2026",
+      "description": "End-to-end design and development of web applications (Figma design, REST APIs, real-time, security, UI dynamization). Developed dating platforms, animation systems, profile management modules, and Community Manager tools."
+    },
+    "exp2": {
+      "role": "Fullstack Developer (Bachelor Internship)",
+      "company": "H.A.I.S.O.A — Mahazoarivo",
+      "period": "Jul 2023 – Oct 2023",
+      "description": "Full development lifecycle: Figma prototyping, React front-end integration, Node.js/Express backend design, REST API creation, and application dynamization."
+    },
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "tools": "Tools & Other"
+    }
   },
   "Contact": {
-    "badge": "Contact",
-    "title": "Let's work together",
-    "description": "Have a project in mind? I'd love to discuss it. Send me a message and I'll get back to you within 2 hours.",
-    "form_name": "Full name",
-    "form_name_placeholder": "John Doe",
-    "form_email": "Email address",
-    "form_email_placeholder": "john@example.com",
-    "form_subject": "Subject",
-    "form_subject_placeholder": "My web project...",
-    "form_message": "Message",
-    "form_message_placeholder": "Describe your project...",
-    "form_submit": "Send message",
-    "form_sending": "Sending...",
-    "form_success": "Message sent successfully!",
-    "form_error": "An error occurred. Please try again.",
-    "info_email": "Email",
-    "info_location": "Location",
-    "info_availability": "Availability",
-    "info_availability_value": "Mon - Fri, 9am - 6pm",
-    "info_response": "Response time",
-    "info_response_value": "Within 24 hours",
-    "social_title": "Find me on"
+    "badge": "Contact & Opportunities",
+    "title": "Let's Discuss a Job or Collaboration",
+    "subtitle": "Looking for a responsive Fullstack Developer to join your team? Feel free to reach out, I will reply as soon as possible.",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone / WhatsApp",
+    "locationLabel": "Location",
+    "locationValue": "Antananarivo, Madagascar",
+    "socialTitle": "Professional Networks",
+    "successMessage": "Your message has been sent successfully! I will get back to you shortly.",
+    "errorMessage": "An error occurred while sending your message. Please try again or email me directly.",
+    "nameLabel": "Full Name",
+    "namePlaceholder": "e.g. John Doe",
+    "emailInputLabel": "Email Address",
+    "emailPlaceholder": "john@company.com",
+    "subjectLabel": "Subject",
+    "subjectPlaceholder": "e.g. Fullstack Developer Job Offer",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Hi Eddy, we stumbled upon your profile and would love to chat...",
+    "sending": "Sending message...",
+    "send": "Send Message"
+  },
+  "Footer": {
+    "description": "Fullstack Developer creating modern web applications with a focus on clean design and great user experience.",
+    "techStackTitle": "Core Technologies",
+    "techStackDescription": "Built with modern technologies to ensure optimal performance and user experience.",
+    "copyright": "All rights reserved.",
+    "builtWith": "Built with",
+    "usingTech": "using Next.js & Tailwind"
   }
 }

@@ -32,7 +32,7 @@ export function LanguageSwitcher() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="outline-none group cursor-pointer">
+      <DropdownMenuTrigger className="outline-none group cursor-pointer" aria-label="Changer de langue / Change language">
         <div className="flex items-center p-1.5 rounded-full border border-border hover:bg-muted/60 transition-colors">
           <img
             src={currentLang.icon}

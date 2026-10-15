@@ -1,66 +1,67 @@
 "use client";
 
 import { Icon } from "@iconify/react";
+import { useTranslations } from "next-intl";
 import { Card } from "@/components/ui/card";
 import { TAG_ICONS } from "@/lib/icons";
 
-const EXPERIENCES = [
-  {
-    role: "Développeur Fullstack JS",
-    company: "SK'HAY — Ambatoroka",
-    period: "Nov 2023 – Sept 2026",
-    description:
-      "Conception et développement complet d'applications web (design Figma, API REST, temps réel, sécurité, dynamisation). Réalisation de plateformes de rencontre, d'animation, de gestion de profils et d'outils Community Manager.",
-    tags: ["React", "Next.js", "Node.js", "NestJS", "WebSockets", "Figma"],
-    color: "bg-violet-500",
-    textColor: "text-violet-600 dark:text-violet-400",
-  },
-  {
-    role: "Développeur Fullstack (Stage Licence)",
-    company: "H.A.I.S.O.A — Mahazoarivo",
-    period: "Juil 2023 – Oct 2023",
-    description:
-      "Prise en charge du cycle complet : maquettage Figma, intégration Front-end React, conception Backend Node.js/Express, création d'API REST et dynamisation de l'application.",
-    tags: ["React", "Node.js", "Express", "API REST", "Figma"],
-    color: "bg-pink-500",
-    textColor: "text-pink-600 dark:text-pink-400",
-  },
-];
-
-const SKILLS = [
-  {
-    category: "Frontend",
-    color: "bg-violet-500",
-    textColor: "text-violet-600 dark:text-violet-400",
-    items: [
-      { label: "React / Next.js", level: 90 },
-      { label: "TypeScript", level: 85 },
-      { label: "Tailwind CSS", level: 90 },
-    ],
-  },
-  {
-    category: "Backend",
-    color: "bg-pink-500",
-    textColor: "text-pink-600 dark:text-pink-400",
-    items: [
-      { label: "Node.js / Express", level: 88 },
-      { label: "NestJS", level: 80 },
-      { label: "Symfony", level: 75 },
-    ],
-  },
-  {
-    category: "Tools & Divers",
-    color: "bg-orange-500",
-    textColor: "text-orange-600 dark:text-orange-400",
-    items: [
-      { label: "PostgreSQL / MongoDB", level: 82 },
-      { label: "Git / GitHub", level: 90 },
-      { label: "Figma (UI/UX)", level: 85 },
-    ],
-  },
-];
-
 export function About() {
+  const t = useTranslations("About");
+
+  const EXPERIENCES = [
+    {
+      role: t("exp1.role"),
+      company: t("exp1.company"),
+      period: t("exp1.period"),
+      description: t("exp1.description"),
+      tags: ["React", "Next.js", "Node.js", "NestJS", "WebSockets", "Figma"],
+      color: "bg-violet-500",
+      textColor: "text-violet-600 dark:text-violet-400",
+    },
+    {
+      role: t("exp2.role"),
+      company: t("exp2.company"),
+      period: t("exp2.period"),
+      description: t("exp2.description"),
+      tags: ["React", "Node.js", "Express", "API REST", "Figma"],
+      color: "bg-pink-500",
+      textColor: "text-pink-600 dark:text-pink-400",
+    },
+  ];
+
+  const SKILLS = [
+    {
+      category: t("categories.frontend"),
+      color: "bg-violet-500",
+      textColor: "text-violet-600 dark:text-violet-400",
+      items: [
+        { label: "React / Next.js", level: 90 },
+        { label: "TypeScript", level: 85 },
+        { label: "Tailwind CSS", level: 90 },
+      ],
+    },
+    {
+      category: t("categories.backend"),
+      color: "bg-pink-500",
+      textColor: "text-pink-600 dark:text-pink-400",
+      items: [
+        { label: "Node.js / Express", level: 88 },
+        { label: "NestJS", level: 80 },
+        { label: "Symfony", level: 75 },
+      ],
+    },
+    {
+      category: t("categories.tools"),
+      color: "bg-orange-500",
+      textColor: "text-orange-600 dark:text-orange-400",
+      items: [
+        { label: "PostgreSQL / MongoDB", level: 82 },
+        { label: "Git / GitHub", level: 90 },
+        { label: "Figma (UI/UX)", level: 85 },
+      ],
+    },
+  ];
+
   return (
     <section id="about" className="w-full bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
@@ -72,17 +73,17 @@ export function About() {
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500" />
             </span>
             <span className="text-[10px] sm:text-xs font-bold text-orange-700 dark:text-orange-400 tracking-widest uppercase">
-              Parcours & Compétences
+              {t("badge")}
             </span>
           </div>
 
           <h2 className="text-lg md:text-2xl font-bold tracking-tighter text-foreground">
-            Expériences Professionnelles & Stack Technique
+            {t("title")}
           </h2>
         </div>
 
         <div className="flex flex-col gap-2 sm:gap-4 mb-6">
-          <h3 className="text-lg font-bold text-foreground">Expériences</h3>
+          <h3 className="text-lg font-bold text-foreground">{t("experiencesTitle")}</h3>
           {EXPERIENCES.map((exp, index) => (
             <Card
               key={index}
@@ -131,7 +132,7 @@ export function About() {
         </div>
 
         <div className="flex flex-col gap-2 sm:gap-4">
-          <h3 className="text-lg font-bold text-foreground mb-1">Compétences Techniques</h3>
+          <h3 className="text-lg font-bold text-foreground mb-1">{t("skillsTitle")}</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {SKILLS.map((group) => (
               <Card
