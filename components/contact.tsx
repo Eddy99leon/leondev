@@ -74,13 +74,25 @@ export function Contact() {
     setFormState("sending");
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (!response.ok) {
+        throw new Error("Erreur lors de l'envoi");
+      }
+
       setFormState("success");
       setForm({ name: "", email: "", subject: "", message: "" });
-      setTimeout(() => setFormState("idle"), 4000);
-    } catch {
+      setTimeout(() => setFormState("idle"), 5000);
+    } catch (error) {
+      console.error(error);
       setFormState("error");
-      setTimeout(() => setFormState("idle"), 4000);
+      setTimeout(() => setFormState("idle"), 5000);
     }
   };
 
@@ -251,7 +263,7 @@ export function Contact() {
                   type="submit"
                   size="lg"
                   disabled={formState === "sending"}
-                  className="h-12 rounded-xl font-bold text-base w-full shadow-md mt-2"
+                  className="h-12 rounded-xl font-bold text-base w-full shadow-md mt-2 cursor-pointer"
                 >
                   {formState === "sending" ? (
                     <>
