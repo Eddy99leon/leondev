@@ -35,9 +35,10 @@ export function About() {
       color: "bg-violet-500",
       textColor: "text-violet-600 dark:text-violet-400",
       items: [
-        { label: "React / Next.js", level: 90 },
-        { label: "TypeScript", level: 85 },
-        { label: "Tailwind CSS", level: 90 },
+        { label: "React.js / Next.js", level: 90 },
+        { label: "JavaScript (ES6+) / TypeScript", level: 88 },
+        { label: "Tailwind CSS / Material UI (MUI)", level: 90 },
+        { label: "HTML5 / CSS3 & Responsive Design", level: 92 },
       ],
     },
     {
@@ -45,9 +46,10 @@ export function About() {
       color: "bg-pink-500",
       textColor: "text-pink-600 dark:text-pink-400",
       items: [
-        { label: "Node.js / Express", level: 88 },
-        { label: "NestJS", level: 80 },
-        { label: "Symfony", level: 75 },
+        { label: "Node.js / Express.js", level: 88 },
+        { label: "NestJS / Symfony", level: 82 },
+        { label: "API REST & WebSockets (Temps réel)", level: 85 },
+        { label: "Sécurité (JWT, OAuth, Sessions)", level: 85 },
       ],
     },
     {
@@ -55,9 +57,10 @@ export function About() {
       color: "bg-orange-500",
       textColor: "text-orange-600 dark:text-orange-400",
       items: [
-        { label: "PostgreSQL / MongoDB", level: 82 },
-        { label: "Git / GitHub", level: 90 },
-        { label: "Figma (UI/UX)", level: 85 },
+        { label: "PostgreSQL / MySQL / MongoDB", level: 84 },
+        { label: "Git / GitHub / GitLab", level: 90 },
+        { label: "Figma (UI/UX Prototyping)", level: 85 },
+        { label: "Postman & Tests API", level: 88 },
       ],
     },
   ];
