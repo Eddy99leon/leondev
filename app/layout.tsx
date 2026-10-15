@@ -5,6 +5,8 @@ import { I18nProvider } from "@/components/i18n-provider";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -42,6 +44,8 @@ export default function RootLayout({
           </ThemeProvider>
         </I18nProvider>
       </body>
+      <Analytics />
+      <SpeedInsights />
     </html>
   );
 }
